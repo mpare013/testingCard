@@ -1,0 +1,1972 @@
+<!DOCTYPE html>
+<head>
+    <link rel="stylesheet" href="desktop.css">
+    <title>Windows 95</title>
+    <meta name="keywords" content= "HTML, CSS, JavaScript">
+    <meta lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content= "width=device-width, initial-scale=1.0">
+    <meta name="author" content= "Melissa Paredes">
+    <script src="brickbreaker.js"></script>
+    <script src="musicPlayer.js"></script>
+    <script src="index.js"></script>
+</head>
+<body>
+
+<audio id="typeSound" src="audio/morse-code-131798.mp3" preload="auto"></audio>
+    <!-- Taskbar -->
+    <div class="taskbar">
+        <button id="start" onclick="openStartMenu(), startToFront()">
+            <img src="https://images2.imgbox.com/58/f2/4HSj4FfK_o.png" width="130px" height="50px" alt="Start">
+        </button>
+        <div class="clock" id="clock"></div>
+    </div>
+
+<!--wish-window-->
+<div id="wish-window-container">
+    <div id="wish-window" style="display:block; overflow: hidden;">
+        <div class="window-top"></div>
+        <div class="notepad-bin-body-chimken">
+            <img src="https://images2.imgbox.com/a8/47/QT6moLo4_o.png">
+            <button class="wish-hotspot" onclick="openWishInput()">
+            </button>
+        </div>
+        <div class="wishInputContainer">
+        <div id="wishInputBox" style="display:none;"><input type="text" id="wishInput" placeholder="Enter your wish here..." onkeydown="handleKeyPress(event)" autocomplete="off"></div>
+    </div>
+    </div>
+</div>
+
+<!--shooting star-->
+<div id="wish-granted" style="display:none;">
+    <div class="window-top">
+        <button class="btn" onclick="closeWish()"> X </button>
+    </div>
+    <div class="notepad-bin-body-wish-hint">
+        <div class=skyHint>
+            <img src="https://images2.imgbox.com/a5/41/iJ1GIrJI_o.jpg" style="display: block;" width="fit-content" height="360px">
+            <div class="wishSuccess">
+                <div class="shooting-star"><img src="https://images2.imgbox.com/11/4f/md6OYog9_o.png" width="40px" height="45px"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- welcome message -->
+    <div id="welcome-message" style="display:block;">
+        <div class="window-top" style="width: 99%;">
+            <div class="title">
+                <img src ="https://images2.imgbox.com/a3/c4/Si7j6VmP_o.png" width="24px" height="24px">
+                Welcome to Windows 95
+            </div>
+            <div class="window-buttons">
+                <button class="btn" onclick="closeWelcomeMessage()">X</button>
+            </div>
+        </div> 
+        <div class="notepad-bin-body-welcome">
+            <div class ="welcomeContainer">
+                <div class="welcomeImageBackground">
+                <div class="welcomeImage"><img src="https://images2.imgbox.com/7f/f2/rYx8PECq_o.png" ></div>
+                </div>
+                <div class="welcomeMessage">
+                    <p class="welcomeFont">
+                        <b class="welcomeTitle"> Welcome back to Windows 95!</b>
+                        <br>
+                        This simulated desktop environment provides the following built-in utilities:<br>
+                        <br>
+                        <i>Inbox — View and manage your messages
+                        <br>
+                        Internet— Launch a web browsing experience
+                        <br>
+                        MS-DOS Prompt — Access the command-line interface
+                        <br>
+                        Email — Send and receive electronic mail
+                        <br>
+                        Notepad — Create and edit plain text documents
+                        <br>
+                        Files — Browse and manage your file directory
+                        <br>
+                        [Confidential] Hidden Files and Programs — Access restricted features, if you know where to look
+                        <br>
+                        </i>
+                        <br>
+                        Setup will take from 30 to 60 mins, depending on the speed of your computer.
+                        <br>
+                        <br>To explore (highly recommended), click Continue.
+                    </p>
+                    <div class="welcomeButtonsContainer">
+                        <button id="OK" onclick ="closeWelcomeMessage()"><u>C</u>ontinue</button>
+                        <button id="ExitWelcome" onclick="closeWelcomeMessage()"><u>E</u>xit</button>
+                    </div>
+                    <br>
+                    <br>
+                    <br>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!-- Start Menu -->
+    <div id="startMenuContainer" style="display:none;">
+        <div id="startMenu">
+            <!-- Programs Section -->
+            <div class="onHoverProgramsContainer">
+                <button class="startIcon" id="programsMenu" onclick="toggleMenu('onHoverPrograms')">
+                    <img class="iconImage" src="https://images2.imgbox.com/3d/aa/FgX2X7Aa_o.png" width="30px" height="30px"> <u>P</u>rograms
+                    <img class="arrow" src="https://images2.imgbox.com/3c/8d/RsLnAVz4_o.png" width="10px" height="10px">
+                </button>
+                <div id="onHoverPrograms" class="submenu">
+                    <button class="programsIcon" onclick="openInternet()">
+                        <img class="iconImage" src="https://images2.imgbox.com/7c/5e/GC399yaq_o.png" width="30px" height="30px"> Internet Explorer
+                    </button>
+                    <button class="programsIcon" onclick="openNotepad()">
+                        <img class="iconImage" src="https://images2.imgbox.com/fe/ac/Xl5BeJSo_o.png" width="30px" height="30px"> Notepad
+                    </button>
+                    <button class="programsIcon" onclick="openBrickBreaker()">
+                        <img class="iconImage" src="https://images2.imgbox.com/8d/f9/sbG8pcn3_o.png" width="30px" height="30px"> Brick Breaker
+                    </button>
+                    <button class="programsIcon" onclick="openPepsiJoke()">
+                        <img class="iconImage" src="https://images2.imgbox.com/35/4a/8pmwAZV5_o.png" width="30px" height="30px"> Pepsi
+                    </button>
+                </div>
+            </div>
+
+            <!-- Documents Section -->
+            <div class="onHoverDocumentsContainer">
+                <button class="startIcon" id="documentsMenu" onclick="toggleMenu('onHoverDocuments')">
+                    <img class="iconImage" src="https://images2.imgbox.com/ed/54/PwAK2P3x_o.png" width="30px" height="30px"><u>D</u>ocuments
+                    <img class="arrow" src="https://images2.imgbox.com/3c/8d/RsLnAVz4_o.png" width="10px" height="10px">
+                </button>
+                <div id="onHoverDocuments" class="submenu">
+                    <button class="programsIcon" onclick="openDocumentsWindow()">
+                        <img class="iconImage" src="https://images2.imgbox.com/ed/54/PwAK2P3x_o.png" width="30px" height="30px"> My Documents
+                    </button>
+                    <button class="programsIcon" onclick="openTaxDocuments()">
+                        <img class="iconImage" src="https://images2.imgbox.com/4b/79/9bZTvnOI_o.png" width="30px" height="30px"> Tax Documents
+                    </button>
+                    <button class="programsIcon" onclick="openTNT()">
+                        <img class="iconImage" src="https://images2.imgbox.com/c8/18/oxf0RK28_o.png" width="30px" height="30px"> New Folder (2)
+                    </button>
+                </div>
+            </div>
+
+            <!-- Main Options Section -->
+            <div class="startMain">
+                <button class="startIcon" onclick="openSettings()">
+                    <img class="iconImage" src="https://images2.imgbox.com/7c/0c/4ZvjsVYa_o.png" width="30px" height="30px"> <u>S</u>ystem Settings
+                </button>
+                <button class="startIcon" onclick="openInbox()">
+                    <img class="iconImage" src="https://images2.imgbox.com/20/26/c5oMZzuR_o.png" width="30px" height="30px"> <u>I</u>nbox
+                </button>
+                <button class="startIcon" onclick="openMSDOS()">
+                    <img class="iconImage" src="https://images2.imgbox.com/eb/62/Cl9xoOut_o.png" width="30px" height="30px"> <u>M</u>S-DOS Prompt
+                </button>
+                <button class="startIcon" onclick="openRecyclingBin()">
+                    <img class="iconImage" src="https://images2.imgbox.com/27/52/656SNfMa_o.png" width="30px" height="30px"> <u>R</u>ecycling Bin
+                </button>
+                <button class="startIcon" onclick="openMyComputer()">
+                    <img class="iconImage" src="https://images2.imgbox.com/47/c6/JoQHB0FA_o.png" width="30px" height="30px"> <u>M</u>y Computer
+                </button>
+                
+
+            </div>
+        </div>
+    </div>
+<audio id="clickSound" src="audio/click.mp3"></audio>
+
+    <div class="iconsWholeContainer">
+        <div class="iconsLeftContainer">
+            <button class="item" onclick="openMyComputer()">
+                <img src="https://images2.imgbox.com/47/c6/JoQHB0FA_o.png" width="80px" height="80px">
+                <div class="text"> My Computer </div>
+            </button>
+            <button class="item" onclick="openInbox()">
+                <img src="https://images2.imgbox.com/20/26/c5oMZzuR_o.png" width="80px" height="80px">
+                <div class="text"> Inbox </div> 
+            </button>
+            <button class="item" onclick="openInternet()">
+                <img src="https://images2.imgbox.com/7c/5e/GC399yaq_o.png" width="80px" height="80px">
+                <div class="text"> Internet <br> Explorer </div> 
+            </button>
+            <button class="item" onclick="openNotepad()">
+                <img src="https://images2.imgbox.com/fe/ac/Xl5BeJSo_o.png" width="80px" height="80px">
+                <div class="text"> Notepad </div> 
+            </button>
+            <button class="item" onclick="openMSDOS()">
+                <img src="https://images2.imgbox.com/eb/62/Cl9xoOut_o.png" width="80px" height="80px">
+                <div class="text"> MS-DOS <br> Prompt </div> 
+            </button>
+            <button class="item" onclick="openPepsiJoke()">
+                <img src="https://images2.imgbox.com/35/4a/8pmwAZV5_o.png" width="80px" height="80px">
+                <div class="text"> Pepsi </div> 
+            </button>
+        </div>
+    
+        <div class="leftContainerColumn">
+            <button class="item" onclick="openRecyclingBin()">
+                <img src="https://images2.imgbox.com/27/52/656SNfMa_o.png" width="80px" height="80px">
+                <div class="text"> Recycling <br> Bin </div> 
+            </button>
+            <button class="item" onclick="openDocumentsWindow()">
+                <img src="https://images2.imgbox.com/ed/54/PwAK2P3x_o.png" width="80px" height="80px">
+                <div class="text"> My Documents </div> 
+            </button>
+            <button class="item" onclick="openSettings()">
+                <img src="https://images2.imgbox.com/7c/0c/4ZvjsVYa_o.png" width="80px" height="80px">
+                <div class="text"> System <br> Settings </div>
+            </button>
+        </div>
+        <!-- pepsi login -->
+    <div id="window6" class="window" style="display:none;">
+        <div class="window-top">
+            <div class="title">
+                <img src="https://images2.imgbox.com/35/4a/8pmwAZV5_o.png" width="24px" height="24px" style="vertical-align: middle; margin-right: 5px;">
+                Pepsi
+            </div>
+            <div class="window-buttons">
+                <button class="btn" onclick="closePepsiJoke()">X</button>
+            </div>
+        </div>
+            <div class ="pepsiContainer">
+                <div class="pepsiImage"><img src ="https://images2.imgbox.com/35/4a/8pmwAZV5_o.png" width ="80px" height="80px"></div>
+                <div class="middleColumn">
+                    <div class="passwordText1">What’s Pepsi’s favorite type of music?</div>
+                    <div class="answer">
+                        <div class="inputContainer"> 
+                            <div class="jokeLabels">
+                                <div class="answerLabel"><u>A</u>nswer:  </div>
+                            </div>
+                            <div class="userInformationInputPepsi">
+                                <input type="text" id="pepsiUserAnswer" class="usernameInputBox" autocomplete="off" onkeydown="handleKeyPress(event)">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="confirmation">
+                    <button id="OK" onclick="loginPepsi()"> OK </button>
+                    <button id="Cancel" onclick="closePepsiJoke()"> Cancel </button>
+                </div>
+        </div>
+    </div>
+    <!-- my computer -->
+    <div id="window1" class="window" style="display: none;">
+        <div class="window-top">
+            <div class="title">
+            <img src = "https://images2.imgbox.com/47/c6/JoQHB0FA_o.png" width="24px" height="24px" style="vertical-align: middle; margin-right: 5px;">
+            My Computer
+        </div>
+            <div class="window-buttons">
+                <button class="btn" onclick="closeMyComputer()">X</button>
+            </div>
+        </div>
+        <div class="menu-bar">
+            <span><u>F</u>ile</span>
+            <span><u>E</u>dit</span>
+            <span><u>V</u>iew</span>
+            <span><u>H</u>elp</span>
+        </div>
+        <div id="myComputerBody">
+            <div class="iconsContainer">
+                <button class="item">
+                    <img src="https://images2.imgbox.com/47/c6/JoQHB0FA_o.png" width="80px" height="80px">
+                    <div class="textBlack"> My Computer </div> 
+                </button>
+                <button class="item" onclick="openInbox(); bringWindowToFront(event)">
+                    <img src="https://images2.imgbox.com/20/26/c5oMZzuR_o.png" width="80px" height="80px">
+                    <div class="textBlack"> Inbox </div> 
+                </button>
+                <button class="item" onclick="openInternet()">
+                    <img src="https://images2.imgbox.com/7c/5e/GC399yaq_o.png" width="80px" height="80px">
+                    <div class="textBlack"> Internet <br> Explorer </div> 
+                </button>
+                <button class="item" onclick="openNotepad()">
+                    <img src="https://images2.imgbox.com/fe/ac/Xl5BeJSo_o.png" width="80px" height="80px">
+                    <div class="textBlack"> Notepad </div> 
+                </button>
+                <button class="item"  onclick= "openMSDOS()">
+                    <img src="https://images2.imgbox.com/eb/62/Cl9xoOut_o.png" width="80px" height="80px">
+                    <div class="textBlack"> MS-DOS <br> Prompt</div> 
+                </button>
+                <button class="item"  onclick="openPepsiJoke()">
+                    <img src="https://images2.imgbox.com/35/4a/8pmwAZV5_o.png" width="80px" height="80px">
+                    <div class="textBlack"> Pepsi </div> 
+                </button>
+                <button class="item" onclick="openRecyclingBin()">
+                    <img src="https://images2.imgbox.com/27/52/656SNfMa_o.png" width="80px" height="80px">
+                    <div class="textBlack"> Recycling <br> Bin </div> 
+                </button>
+                <button class="item" onclick="openDocumentsWindow()">
+                    <img src="https://images2.imgbox.com/ed/54/PwAK2P3x_o.png" width="80px" height="80px">
+                    <div class="textBlack"> My Documents </div> 
+                </button>
+                <button class="item" onclick="openSettings()">
+                    <img src="https://images2.imgbox.com/7c/0c/4ZvjsVYa_o.png" width="80px" height="80px">
+                    <div class="textBlack"> System <br> Settings </div> 
+                </button>   
+                <button class="item"  onclick="openBrickBreaker()">
+                    <img src="https://images2.imgbox.com/8d/f9/sbG8pcn3_o.png" width="80px" height="80px">
+                    <div class="textBlack"> Brick Breaker </div> 
+                </button>
+                <button class="item" onclick="openTNT()">
+                    <img src="https://images2.imgbox.com/c8/18/oxf0RK28_o.png" width="80px" height="80px">
+                    <div class="textBlack"> New Folder (2) </div> 
+                </button>
+                <button class="item" onclick="openTaxDocuments()">
+                    <img src="https://images2.imgbox.com/4b/79/9bZTvnOI_o.png" width="70px" height="70px">
+                    <div class="textBlack"> Tax Documents </div>
+                </button>
+            </div>              
+                </div>               
+                <div class="status-bar">
+                    <span>12 object(s)</span>
+                    <span>Windows95</span>
+                </div>
+            </div>
+        </div>
+
+<!-- inbox -->
+<div id="window2" class="window" style="display:none">
+    <div class="window-top">
+        <div class="title">
+            <img src="https://images2.imgbox.com/20/26/c5oMZzuR_o.png" width="24px" height="24px" style="vertical-align: middle; margin-right: 5px;">
+            Inbox - Microsoft Exchange
+        </div>
+        <div class="window-buttons">
+            <button class="btn" onclick="closeInbox()">X</button>
+        </div>
+    </div>
+    <div class="menu-bar">
+            <span><u>F</u>ile</span>
+            <span><u>E</u>dit</span>
+            <span><u>V</u>iew</span>
+            <span><u>H</u>elp</span>
+    </div>
+    <div class="inbox-body">
+        <div class="email-list">
+            <div class="email-item" onclick="openEmail('email1')">
+                <strong>From:</strong> admin@windows95.com <br>
+                <strong>Subject:</strong> Welcome to Windows! <br>
+                <small>It’s 1995 and you're online. Amazing!</small>
+            </div>
+            <div class="email-item" onclick="openEmail('email2')">
+                <strong>From:</strong> dreamwatch@strange.net <br>
+                <strong>Subject:</strong> [Warning] The Cat Watches <br>
+                <small>We saw it too. You’re not alone.</small>
+            </div>
+            <div class="email-item" onclick="openEmail('email3')">
+                <strong>From:</strong> noreply@brickbreaker.com <br>
+                <strong>Subject:</strong> High Score Achieved! <br>
+                <small>Congrats, you’ve broken the wall!</small>
+            </div>
+            <div class="email-item" onclick="openEmail('email4')">
+                <strong>From:</strong> silvercinema@windows95.com <br>
+                <strong>Subject:</strong> VIP Tickets <br>
+                <small>Your reservation is complete. Showtime details below.</small>
+            </div>
+            <div class="email-item" onclick="openEmail('email5')">
+                <strong>From:</strong> You<br>
+                <strong>Subject:</strong> gift 4 u <br>
+                <small>Surprises Inside</small>
+            </div>
+            <div class="email-item" onclick="openEmail('email6')">
+                <strong>From:</strong> recipes@homebyte.net <br>
+                <strong>Subject:</strong> Brownie Recipe <br>
+                <small> Fudgy. Gooey. Irresistible. Need we say more? </small>
+            </div>
+            <div class="email-item" onclick="openEmail('email7')">
+                <strong>From:</strong> support@tech.com <br>
+                <strong>Subject:</strong> Issue with Logging Into Your Account<br>
+                <small> Customer Support Request </small>
+            </div>
+            <div class="email-item" onclick="openEmail('email8')">
+                <strong>From:</strong> donotreply@evergreenbank.net <br>
+                <strong>Subject:</strong> Your Evergreen Bank Credit Card Statement Is Ready<br>
+                <small> Important Information Regarding Your Account </small>
+            </div>
+        </div>
+        <div class="email-preview" id="emailPreview">
+            <div id="email1" class="email-content" style="display: block;">
+                <strong>From:</strong> admin@windows95.com<br>
+                <strong>To:</strong> You<br><br>
+                Welcome to your inbox! <br>
+                <br>
+                This is your default welcome message. <br>
+                <br>
+                Hope you're enjoying that fresh 16-bit air.
+            </div>
+            <div id="email2" class="email-content" style="display: none;">
+                <strong>From:</strong> dreamwatch@strange.net<br>
+                <strong>To:</strong> You<br><br>
+                The cat with the lantern eyes has appeared in other dreams too.<br>
+                <br>
+                If it gave you a key, it’s for something important. Stay alert.
+            </div>
+            <div id="email3" class="email-content" style="display: none;">
+                <strong>From:</strong> noreply@brickbreaker.com<br>
+                <strong>To:</strong> You<br><br>
+                Hey there Brickmaster! You smashed all the bricks in record time. <br>
+                <br>
+                Claim your prize at<button id= "virusLink" class="hyperlink" onclick="openVirus()">brickbreaker.com/win</button>
+            </div>
+            <div id="email7" class="email-content" style="display: none;">
+                <strong>From:</strong> support@tech.com <br>
+                <strong>To:</strong> You<br><br>
+                Dear Customer,<br>
+                <br>
+                Thank you for reaching out to us. We’re sorry to hear that you’ve been having trouble logging into your account, and we’re here to help!<br>
+                <br>
+            
+                After reviewing your case, it looks like the issue may be related to a recent update we rolled out. Our engineering team is currently working on a fix and we expect everything to be back to normal shortly.
+                
+                In the meantime, please try the following steps:<br>
+                <p style="padding-left: 2em;">• Clear your browser’s cache and cookies.<br></p>
+                <p style="padding-left: 2em;">• Try logging in from an incognito/private browsing window.<br></p>
+                If the problem persists, click “Forgot Password” to reset your credentials.<br>
+                <br>
+                We truly appreciate your patience and understanding. If you continue to experience issues, feel free to reply to this email and we’ll escalate your case right away.<br>
+                <br>
+                Thanks again for using <i>Empire</i> !<br>
+                <br>
+                Warm regards,
+                Alex <br>
+                Customer Support Specialist
+
+                <br>
+            </div>
+            <div id="email4" class="email-content" style="display: none;">
+                <strong>From:</strong> silvershadowcinema@windows95.com<br>
+                <strong>To:</strong> You<br><br>
+                <p style="overflow-y: auto";>
+                    Dear Customer,<br><br>
+            
+                    Thank you for your purchase. Your reservation for <i>Drop</i> has been confirmed.<br><br>
+            
+                    <strong>TICKET DETAILS:</strong><br>
+                    • <strong>Movie:</strong> <i>Drop</i><br>
+                    • <strong>Date:</strong> Saturday, May 10th, 2025<br>
+                    • <strong>Time:</strong> 8:00 PM<br>
+                    • <strong>Seats:</strong> Row C, Seats 7 & 8<br>
+                    • <strong>Reservation Code:</strong> DROP-X94L8 <br><br>
+            
+                    <strong>Check-In:</strong> Please arrive 15 minutes early to enjoy complimentary snacks and beverages (trust us, you’ll want popcorn to bite during the suspense).<br><br>
+            
+                    <strong>About the Film:</strong>
+                    Drop is a tightly wound psychological thriller that will have you gripping the armrest and questioning every shadow. You’ve never seen suspense like this.<br><br>
+            
+                    If you have any questions or need to reschedule, contact us at <a href="mailto:support@silvershadowcinema.com">support@silvershadowcinema.com</a>.<br><br>
+            
+                    Enjoy the show — and don’t look down.<br><br>
+            
+                    — The Silver Shadow Team  
+                    <i>“Where silence is louder.”</i>
+                </p>
+            </div>
+            <div id="email5" class="email-content" style="display: none;">
+                <strong>From:</strong> bubblegumyum@windows95.com<br>
+                <strong>To:</strong> pb013@codemail.com<br><br>
+                hii pb013, i've attached some little surprises in this email <br>
+                <br>
+                hehehe, hope you love it.<br>
+                <br>
+                i know you've been stressed lately but i hope these make you feel a little better!
+                <br>
+                <div class="attachments">
+                Attached Files:<br>
+                <button class="hyperlink" onclick="openSticker2()">flowers.jpg</button>
+                <br>
+                <button class="hyperlink" onclick="openSticker3()">coupon.jpg</button>
+                </div>
+            </div>
+            <div id="email6" class="email-content" style="display: none;">
+                <strong>From:</strong> recipes@homebyte.net <br>
+                <strong>To:</strong> You<br><br>
+                Hey there, HomeBaker!<br><br>
+
+                It’s time for this month’s *Byte of the Month* — and we’re going full nostalgia:  <br>
+                <br>
+                Classic Fudgy Brownies — simple, gooey, and dangerously good.<br><br>
+            
+                <strong>Ingredients:</strong><br>
+                • 1/2 cup (1 stick) unsalted butter, melted<br>
+                • 1 cup granulated sugar<br>
+                • 2 large eggs<br>
+                • 1 tsp vanilla extract<br>
+                • 1/3 cup unsweetened cocoa powder<br>
+                • 1/2 cup all-purpose flour<br>
+                • 1/4 tsp salt<br>
+                • 1/4 tsp baking powder<br>
+                • (Optional) 1/2 cup chocolate chips or chopped nuts<br><br>
+            
+                <strong>Directions:</strong><br>
+                1. Preheat oven to 350°F (175°C). Grease an 8x8" pan.<br>
+                2. Mix butter & sugar. Add eggs + vanilla.<br>
+                3. Stir in dry ingredients. Fold in any extras.<br>
+                4. Bake 20–25 minutes (or until just set).<br>
+                5. Cool. Slice. Pretend you’ll eat just one.<br><br>
+                
+                <br>
+            
+                Until next time, <br>
+                <br> 
+                — The HomeByte Kitchen Crew  <br>
+                <i> “Feeding your inbox since 1994.” </i>
+                </div>
+
+            <div id="email8" class="email-content" style="display: none;">
+                <strong>From:</strong> donotreply@evergreenbank.com><br>
+                <strong>To:</strong> You<br><br>
+                Dear Customer,<br>
+                <br>
+                Your monthly Evergreen Platinum Credit Card statement for the billing period ending May 5, 2025 is now available.<br>
+                <br>
+                You can view your statement securely by signing in to your Evergreen Online Banking account.<br>
+                <br>
+                To view your statement:<br>
+                <p style="padding-left: 2em;">1. Go to evergreenbank.com/login<br></p>
+                <p style="padding-left: 2em;">2. Sign in with your username and password<br></p>
+                <p style="padding-left: 2em;">3. Navigate to Credit Cards > Statements<br></p>
+        
+                To avoid interest charges, please ensure your full balance is paid by the due date. <br>
+                <br>
+                You can make a payment through online banking, the Evergreen Mobile App, or by setting up pre-authorized payments. <br>
+                <br>
+                If you have questions, contact our 24/7 Card Services team at 1-877-555-3942, or visit your local Evergreen branch.<br>
+                <br>
+                Thank you for choosing Evergreen Bank.<br>
+                <br>
+                Warm regards,<br>
+                <i>Evergreen Card Services</i><br>
+                <br>
+                Please Note: Evergreen Bank will never ask for your PIN, password, or full card number by email. Always sign in directly through our secure website or app.<br>
+
+            </div>
+        </div>
+
+
+        
+    </div>
+    <div class="status-bar">
+        <span>8 message(s)</span>
+        <span>Windows95</span>
+    </div>
+</div>
+</div>
+
+<!-- msdos -->
+<div id="window30" class="window" style="display:none;">
+    <div class="window-top" style="position: sticky; top: -3px; ">    
+      <img src="https://images2.imgbox.com/eb/62/Cl9xoOut_o.png" width="24px" height="24px">
+      <div style="position: absolute; left: 40px; font-size: 20px;">MS-DOS Prompt</div>
+      <button class="helpPassword" onclick="openMSDOSHint()"> ? </button>
+      <button class="btn" onclick="closeMSDOS()"> X </button>
+    </div>
+    <div class="msdos-body">
+        <div class="msdosContents">
+            <div class="msdosStaticMessage">Microsoft Windows [Version 10.0.26100.3323]</div>
+            <div class="msdosStaticMessage">(c) Microsoft Corporation. All rights reserved.</div>
+            <div class="msdosMessage">C:\User\MS-DOS><input type="text" id="commandInput" class="commandInput" autocomplete="off"></div>
+        </div>
+    </div>
+</div>
+
+<!-- msdos - hint -->
+    <div id="window5" class ="window" style="display: none;">
+        <div class="window-top">
+            <div class="title">
+                <img src="https://images2.imgbox.com/62/28/eU9tycC9_o.png" width="24px" height="24px" style="vertical-align: middle; margin-right: 5px;">
+                MS-DOS Command List
+            </div>
+            <div class="window-buttons">
+                <button class="btn" onclick="closeMSDOSHint()">X</button>
+            </div>
+        </div>
+        
+        <div class="hintContents">
+            <div class="hintIcon"><img src="https://images2.imgbox.com/62/28/eU9tycC9_o.png" width="95px" height="95px"></div>
+            <div class="hintMessage">
+                <div class="commandMSDOS"><b>grtng</b>: simple greeting from MSDOS</div>
+                <div class="commandMSDOS"><b>wthr</b>: predicts weather the next day</div>
+                <div class="commandMSDOS"><b>frtn</b>: generates a fortune based on your astrological <br> sign</div>
+                <div class="commandMSDOS"><b>dinr</b>: decides what you should have for dinner</div>
+                <div class="commandMSDOS"><b>dte</b>: gives you a random fun date idea</div>            
+            </div>
+        </div>
+        <div class="hintButtonContainer">
+            <button id="OKhint" onclick="closeMSDOSHint()">OK</button>
+        </div>
+    </div>
+
+    <!-- music player -->
+    <div id="window12" class="window" style="display: none;">
+        <div class="window-top">
+            <div class="title">
+                <img src="https://images2.imgbox.com/2b/fe/v9PkUf0d_o.png" width="24px" height="24px" > WinPlay3 
+            </div>
+            <div class="window-buttons">
+                <button class="btn" onclick="closeMusicPlayer()">X</button>
+            </div>
+        </div>
+        
+        <div class="screenContainer">
+            <div class="displayScreen">
+                <div class="trackContainer">
+                    <div class="screenPlayerText">TRACK</div>
+                    <div id="trackNumber">1</div>
+                </div>
+                <div class="minuteContainer">
+                    <div class="minutePlayerText">MIN</div>
+                    <div id="minuteNumber">0:</div>
+                </div>
+                <div class="secondContainer">
+                    <div class="secondPlayerText"> SEC </div>
+                    <div id="secondNumber">00</div>
+                </div>
+                <div class="screenDetails">
+                    <div class="screenDetailsText">MODE</div>
+                    <div class="screenDetailsText">44kHz<img src="https://images2.imgbox.com/20/1b/C0gX7HWU_o.png">I</div>
+                    <div class="screenDetailsText">96kBits <span></span> II</div>
+                </div>
+            </div>
+        </div>
+    
+        <div class="line"></div>
+        
+        <div class="musicPlayerControls">
+            <div id="play" onclick="playSong()">
+                <img src="https://images2.imgbox.com/3c/8d/RsLnAVz4_o.png" width="16px" height="16px">
+            </div>
+            <div id="stop" onclick="stopSong()">
+                <img src="https://images2.imgbox.com/c2/52/GWQcTAsM_o.png" width="12px" height="12px">
+            </div>
+            <div class="previous" onclick="previousTrack()">
+                <img src="https://images2.imgbox.com/45/53/p25Bf8B3_o.png" width="16px" height="16px">
+            </div>
+            <div class="next" onclick="nextTrack()">
+                <img src="https://images2.imgbox.com/3a/fa/STAkjL4w_o.png" width="16px" height="16px">
+            </div>
+        </div>
+    </div>
+    
+
+    <div class="rightIconContainer">
+    <div class ="funGames">
+        <button class="item"  onclick="openBrickBreaker()">
+            <img src="https://images2.imgbox.com/8d/f9/sbG8pcn3_o.png" width="80px" height="80px">
+            <div class="text"> Brick Breaker </div> 
+        </button>
+        <button class="item" onclick="openTaxDocuments()">
+            <img src="https://images2.imgbox.com/4b/79/9bZTvnOI_o.png" width="70px" height="70px">
+            <div class="text"> Tax Documents </div>
+        </button>
+        <button class="item" id ="TNT" onclick="openTNT()">
+            <img src="https://images2.imgbox.com/c8/18/oxf0RK28_o.png" width="80px" height="80px">
+            <div class="text"> New Folder (2) </div> 
+        </button>
+    </div>
+    <!-- tnt login -->
+    <div id="window18" class="window" style="display:none;">
+        <div class="window-top">
+            <img src="https://images2.imgbox.com/c8/18/oxf0RK28_o.png" width ="24px" height="24px"><div style="position: absolute; left: 40px; font-size: 20px;">Enter Valid Credentials</div>
+            <button class="btn" onclick="closeTNT()">X</button>
+        </div>
+            <div class ="passwordContainer">
+                <div class="passwordImage"><img src ="https://images2.imgbox.com/59/77/T7y2Jmy2_o.png" width ="80px" height="80px"></div>
+                <div class="middleColumn">
+                    <div class="passwordText1">Type a name to identify yourself to Windows. </div>
+                    <div class="passwordText2">This content is restricted. Enter your password to proceed.</div>
+                    <div class="userInformation">
+                        <div class="inputContainer"> 
+                            <div class="userLabels">
+                                <div class="usernameLabel"><u>U</u>ser name:  </div>
+                                <div class="passwordLabel"><u>P</u>assword:   </div>
+                            </div>
+                            <div class="userInformationInput">
+                                <input type="text" id="usernameTNT" class="usernameInputBox" onkeydown="handleKeyPress(event)" autocomplete="off">
+                                <input type="password" id="passwordTNT" class="passwordInputBox" onkeydown="handleKeyPress(event)" autocomplete="off">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="confirmation">
+                    <button id="OK" onclick="loginTNT()"> OK </button>
+                    <button id="Cancel" onclick="closeTNT()"> Cancel </button>
+                </div>
+        </div>
+    </div>
+<!-- tnt Ending -->
+ <div id="endBlock" class="window" style="display:none;">
+    <div class="window-top" style="position: sticky; top: -3px; ">    
+      <img src="https://images2.imgbox.com/eb/62/Cl9xoOut_o.png" width="24px" height="24px">
+      <div style="position: absolute; left: 40px; font-size: 20px;">TNT</div>
+      <button class="TNTbtn" onclick="closeMSDOS()"> X </button>
+    </div>
+    <div class="center-container">
+        <div id="typedtext"></div>
+    </div>
+</div>
+<!-- tax login -->
+    <div id="window11" class="window" style="display:none;">
+        <div class="window-top"><img src="https://images2.imgbox.com/4b/79/9bZTvnOI_o.png" width ="24px" height="24px"><div style="position: absolute; left: 40px; font-size: 20px;">Enter Valid Credentials</div>
+            <button class="helpPassword" onclick="openTaxHint()">?</button>
+            <button class="btn" onclick="closeTaxDocuments()">X</button>
+        </div>
+            <div class ="passwordContainer">
+                <div class="passwordImage"><img src ="https://images2.imgbox.com/59/77/T7y2Jmy2_o.png" width ="80px" height="80px"></div>
+                <div class="middleColumn">
+                    <div class="passwordText1">Type a name to identify yourself to Windows. </div>
+                    <div class="passwordText2">Enter your password to access protected tax information.</div>
+                    <div class="userInformation">
+                        <div class="inputContainer"> 
+                            <div class="userLabels">
+                                <div class="usernameLabel"><u>U</u>ser name:  </div>
+                                <div class="passwordLabel"><u>P</u>assword:   </div>
+                            </div>
+                            <div class="userInformationInput">
+                                <input type="text" id="usernameTax" class="usernameInputBox" onkeydown="handleKeyPress(event)" autocomplete="off">
+                                <input type="password" id="passwordTax" class="passwordInputBox" onkeydown="handleKeyPress(event)" autocomplete="off">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="confirmation">
+                    <button id="OK" onclick="loginTax()"> OK </button>
+                    <button id="Cancel" onclick="closeTaxDocuments()"> Cancel </button>
+                </div>
+        </div>
+    </div>
+    <div id="window14" class="window" style="display: none;">
+        <div class="window-top">
+            <div class="title">
+                <img src="https://images2.imgbox.com/62/28/eU9tycC9_o.png" width="35px" height="30px" style="vertical-align: middle; margin-right: 5px;">
+                Hint
+            </div>
+            <div class="window-buttons">
+                <button class="btn" onclick="closeTaxHint()">X</button>
+            </div>
+        </div>
+        
+        <div class="hintContents">
+            <div class="hintIcon"><img src="https://images2.imgbox.com/62/28/eU9tycC9_o.png" width="100px" height="95px"></div>
+            <div class="hintMessageTax">
+                User name: Chroma <br> Password: # * * * * * *
+            </div>
+        </div>
+        <div class="hintButtonContainer">
+            <button id="OKhint" onclick="closeTaxHint()" style="margin-top: -10px">OK</button>
+        </div>
+    </div>
+
+<!-- My documents -->
+    <div id="window20" class="window" style="display:none;">
+        <div class="window-top">
+            <div class="title">
+                <img src="https://images2.imgbox.com/ed/54/PwAK2P3x_o.png" width="24px" height="24px" style="vertical-align: middle; margin-right: 5px;">
+                My Documents
+            </div>
+            <div class="window-buttons">
+                <button class="btn">X</button>
+            </div>
+        </div>
+        <div class="menu-bar">
+            <span><u>F</u>ile</span>
+            <span><u>E</u>dit</span>
+            <span><u>V</u>iew</span>
+            <span><u>H</u>elp</span>
+        </div>
+        <div class="recycling-bin-body">
+            <div class="iconsContainer">
+                <button class="item" onclick="openFavourites()">
+                    <img src="https://images2.imgbox.com/a2/c9/L9TKcmsb_o.png" width="80px" height="80px">
+                    <div class="textBlack">Favourites</div>
+                </button>
+                <button class="item" onclick="openGroceryListNote()">
+                    <img src="https://images2.imgbox.com/fe/ac/Xl5BeJSo_o.png" width="80px" height="80px">
+                    <div class="textBlack">Grocery List.txt</div>
+                </button>
+                <button class="item" onclick="openRandomNote()">
+                    <img src="https://images2.imgbox.com/fe/ac/Xl5BeJSo_o.png" width="80px" height="80px">
+                    <div class="textBlack">Draft.txt</div>
+                </button>
+            </div>
+        </div>
+        <div class="status-bar">
+            <span>3 item(s)</span>
+            <span>Windows95</span>
+        </div>
+    </div>
+
+<!-- grocery list-->
+<div id="window23" class="window" style="display:none;">
+    <div class="window-top">
+        <div class="title">
+            Grocery List
+        </div>
+        <div class="window-buttons">
+            <button class="btn" onclick="closeGroceryListNote()">X</button>
+        </div>
+    </div>
+    <div class="menu-bar">
+            <span><u>F</u>ile</span>
+            <span><u>E</u>dit</span>
+            <span><u>V</u>iew</span>
+            <span><u>H</u>elp</span>
+    </div>
+    <div class="notepad-bin-body">
+Grocery List - Pizza Night<br>
+<br>
+diet pepsi<br>
+roses<br>
+flour<br>
+salt<br>
+sugar<br>
+dry yeast<br>
+warm water<br>
+olive oil<br>
+tomato sauce<br>
+mozzarella<br>
+maybe mushrooms<br>
+pepperoni<br>
+maybe olives<br>
+pineapple????<br>
+red & green bell pepper<br>
+<br>
+Cooking Instructions:<br>
+1. Preheat the oven to 475°F (245°C).<br>
+2. Roll out pizza dough on a floured surface.<br>
+3. Spread tomato sauce on the dough, leaving a small border around the edges.<br>
+4. Sprinkle mozzarella cheese evenly on top.<br>
+5. Add toppings (pepperoni, bell peppers, mushrooms, olives).<br>
+6. Drizzle a little olive oil over the pizza and sprinkle with oregano.<br>
+7. Bake for about 12-15 minutes or until the crust is golden and the cheese is bubbly.<br>
+8. Slice and enjoy!<br>
+
+    </div>
+<div class="status-bar">
+    <span>1 item(s)</span>
+    <span>Windows95</span>
+</div>
+</div>
+<!-- flower note window -->
+    <div id="window36" class="window" style="display:none;">
+        <div class="window-top">
+            <div class="title">
+                Flower Readings
+            </div>
+            <div class="window-buttons">
+                <button class="btn" onclick="closeFlowers()">X</button>
+            </div>
+        </div>
+        <div class="menu-bar">
+            <span><u>F</u>ile</span>
+            <span><u>E</u>dit</span>
+            <span><u>V</u>iew</span>
+            <span><u>H</u>elp</span>
+        </div>
+        <div class="notepad-bin-body">
+<br>
+sometimes, i find it hard to say how i feel.<br>
+<br>
+but flowers have a way of saying things i can’t quite put into words.<br>
+<br>
+<i>roses</i> = timeless beauty and the complexity of human emotion. its bloom speaks to love and desire, while its thorns remind us that even beauty comes with challenges.<br>
+<br>
+<i>sunflowers</i> = warmth. like someone who just makes everything better with their presence. whenever i look at these, i feel comfort and it makes my day brighter. these are reserved for people i truly care about.<br>
+<br>
+<i>lily of the valley</i> = quiet love. soft, but strong. the kind of love that’s always there no matter how far you are from each other.<br>
+<br>
+<i>forget-me-nots </i>= memory. the kind of love or friendship that never really leaves you.<br>
+<br>
+<i>lavender </i>= calm. peacefulness. like when you finally feel safe after a long day. these signify devotion without expectation – offering love because you genuinely feel it, not because you need something back.<br>
+<br>
+<i>peonies </i>= hope. they remind me that even when things are messy, beauty can still grow.<br>
+<br>
+<i>lilies </i>= a gentle way to say “i see you, i value you, and i’m thankful for the love and calm you bring into my life". they symbolize a quiet, steady kind of affection—one rooted in trust, gratitude, and emotional warmth. these lilies honor the beauty of gentle love, the kind that nurtures without needing to be loud.<br>
+<br>
+<i>baby’s breath</i> = subtle love. not loud, but always there, quietly supporting.<br>
+<br>
+<i>amaryllis </i> = standing out with a mix of strength and mystery. it’s a way to say you really admire someone, not just for how they look, but for their confidence and the deeper, more meaningful stuff about them. giving someone a purple amaryllis is like telling them, “You’re amazing, and I see the real you". it’s a flower that shows respect and a special kind of love that goes beyond just the surface.<br>
+<br>
+<i>tulips </i>= new beginnings. fresh starts, even after things have ended.<br>
+<br>
+<i>orchids </i>= admiration. something rare, strong, and beautiful that you can’t help but respect and adore.<br>
+<br>
+        </div>
+    <div class="status-bar">
+        <span>1 item(s)</span>
+        <span>Windows95</span>
+    </div>
+    </div>
+<!-- draft letter -->
+    <div id="window24" class="window" style="display:none;">
+        <div class="window-top">
+            <div class="title">
+                Draft
+            </div>
+            <div class="window-buttons">
+                <button class="btn" onclick="closeRandomNote()">X</button>
+            </div>
+        </div>
+        <div class="menu-bar">
+            <span><u>F</u>ile</span>
+            <span><u>E</u>dit</span>
+            <span><u>V</u>iew</span>
+            <span><u>H</u>elp</span>
+        </div>
+        <div class="notepad-bin-body">
+            ugh... i wish i could just zap my feelings into words. <br>
+            <br> i want to write a heartfelt letter but i just don't know how to say how I feel with words.
+            <br> i should've paid more attention in english... maybe this would've been easier...
+            <br> 
+            <br>
+            Doctor's appointment May 18 @ 9:00 AM<br>
+            <br>
+            Vitamin D - good for bones and teeth<br>
+            <br>
+            Strawberry Picking Season:  mid-June to late July<br>
+            <br>
+            Berry Banana Smoothie:<br>
+            1 ripe banana<br>
+            1/2 cup mixed berries (blueberries, strawberries, raspberries)<br>
+            1/2 cup Greek yogurt (or any yogurt of choice)<br>
+            1/2 cup almond milk (or any milk of choice)<br>
+            1 tbsp honey <br>
+            <br>
+            Honey Benefits:<br>
+            Rich in Antioxidants<br>
+            Soothes Sore Throats<br>   
+            Boosts Immune System<br>         
+            Natural Energy Booster<br>
+            Aids Digestion<br>
+        </div>
+    <div class="status-bar">
+        <span>1 item(s)</span>
+        <span>Windows95</span>
+    </div>
+</div>
+
+<!-- favourites window -->
+<div id="window25" class="window" style="display:none;">
+    <div class="window-top">
+        <div class="title">
+            Favourites
+        </div>
+        <div class="window-buttons">
+            <button class="btn" onclick="closeFavourites()">X</button>
+        </div>
+    </div>
+    <div class="menu-bar">
+            <span><u>F</u>ile</span>
+            <span><u>E</u>dit</span>
+            <span><u>V</u>iew</span>
+            <span><u>H</u>elp</span>
+    </div>
+    <div class="notepad-bin-body">
+        <div class="playlist-grid">
+            <div class="grid-header">Track</div>
+            <div class="grid-header">Song</div>
+            <div class="grid-header">Artist</div>
+            <div class="grid-header">Genre</div>
+        
+            <!-- Song entries -->
+            <div>1</div> <div>Valentine</div> <div>Laufey</div> <div>Jazz</div>
+            <div>2</div> <div>Diet Pepsi</div> <div>Addison Rae</div> <div>Pop</div>
+            <div>3</div> <div>No One Noticed</div> <div>The Marias </div> <div>Indie Pop</div>
+            <div>4</div> <div>Mystery of Love</div> <div>Sufjan Stevens</div> <div>Indie Folk</div>
+            <div>5</div> <div>Birds of a Feather</div> <div>Billie Eilish</div> <div>Indie Pop</div>
+            <div>6</div> <div>From the Start</div> <div>Laufey</div> <div>Jazz</div>
+            <div>7</div> <div>Versace on the Floor</div> <div>Bruno Mars</div> <div>R&B</div>
+            <div>8</div> <div>Glue Song</div> <div>Beabadoobee</div> <div>Indie Pop</div>
+            <div>9</div> <div>Bella Ciao (Original)</div> <div>Traditional</div> <div>Folk</div>
+            <div>10</div> <div>Brazil</div> <div>Declan McKenna</div> <div>Indie Pop</div>
+          </div>
+
+
+    </div>
+<div class="status-bar">
+    <span>1 item(s)</span>
+    <span>Windows95</span>
+</div>
+</div>
+
+<!-- recycling bin -->
+    <div id="window7" class="window" style="display:none;">
+        <div class="window-top">
+            <div class="title">
+                <img src="https://images2.imgbox.com/27/52/656SNfMa_o.png" width="24px" height="24px" style="vertical-align: middle; margin-right: 5px;">
+                Recycling Bin
+            </div>
+            <div class="window-buttons">
+                <button class="btn" onclick="closeRecyclingBin()">X</button>
+            </div>
+        </div>
+        <div class="menu-bar">
+            <span><u>F</u>ile</span>
+            <span><u>E</u>dit</span>
+            <span><u>V</u>iew</span>
+            <span><u>H</u>elp</span>
+        </div>
+        <div class="recycling-bin-body">
+            <div class="iconsContainer">
+                <button class="item" onclick="openTNTPasswordNote()">
+                    <img src="https://images2.imgbox.com/fe/ac/Xl5BeJSo_o.png" width="80px" height="80px">
+                    <div class="textBlack">Untitled - Notepad.txt</div>
+                </button>
+                <button class="item" onclick="openTodolist()">
+                    <img src="https://images2.imgbox.com/fe/ac/Xl5BeJSo_o.png" width="80px" height="80px">
+                    <div class="textBlack">Checklist.txt</div>
+                </button>
+                <button class="item" onclick="openDecoder()">
+                    <img src="https://images2.imgbox.com/fe/ac/Xl5BeJSo_o.png" width="80px" height="80px">
+                    <div class="textBlack">Decoder.txt</div>
+                </button>
+                <button class="item" onclick="openPokerDog()">
+                    <img src="https://images2.imgbox.com/a2/c9/L9TKcmsb_o.png" width="80px" height="80px">
+                    <div class="textBlack">Bluffhound.jpg</div>
+                </button>
+            </div>
+        </div>
+        <div class="status-bar">
+            <span>4 item(s)</span>
+            <span>Windows95</span>
+        </div>
+    </div>
+<!-- tax password note -->
+    <div id="window66"  class="window" style="display:none;">
+        <div class="window-top">
+            <div class="title">
+                <img src="https://images2.imgbox.com/fe/ac/Xl5BeJSo_o.png" width="24px" height="24px" style="vertical-align: middle; margin-right: 5px;">
+                Untitled - Notepad
+            </div>
+            <div class="window-buttons">
+                <button class="btn" onclick="closeTNTPasswordNote()">X</button>
+            </div>
+        </div>
+        <div class="menu-bar">
+            <span><u>F</u>ile</span>
+            <span><u>E</u>dit</span>
+            <span><u>V</u>iew</span>
+            <span><u>H</u>elp</span>
+        </div>
+        <div class="notepad-bin-body">
+Color of the Year — Pantone Filing Report 2024-2025 [Internal Copy Only]<br>
+Reference Memo – 2024 Tax Filing Review  <br>
+File Code: RGB - 138, 154, 91  <br>
+<br>
+Submitted under section 17.4B for internal audit. The following has been noted for discrepancy:<br>
+
+Line 14A: “where the sky met the lemon tree, <u>8</u> birds flew west towards Albany.”<br>
+Line 40: “delta reported <u>9</u> blooms too early this season in April.”<br>
+Line 9C: “memory of october rain, specifically on the <u>5</u>th.”<br>
+Line 3D: "only one Bloom remains unopened."<br>
+Line 30: “subject kept repeating: ‘green was never just a color.’”<br>
+<br>
+Attached:<br>
+• (Keyword entry: **"moss"**)<br>
+• Order Index: 14A-2CH, 40-2CH, 9C-1CH, 3D-1CH  <br>
+<br>
+Username: Chroma<br>
+Password: #****** [REDACTED] <br>
+<br>
+End memo.
+
+        </div>
+    <div class="status-bar">
+        <span>1 item(s)</span>
+        <span>Windows95</span>
+    </div>
+</div>
+
+<!-- to do list -->
+<div id="window65" class="window" style="display:none;">
+    <div class="window-top">
+        <div class="title">
+            Checklist
+        </div>
+        <div class="window-buttons">
+            <button class="btn" onclick="closeTodolist()">X</button>
+        </div>
+    </div>
+    <div class="menu-bar">
+            <span><u>F</u>ile</span>
+            <span><u>E</u>dit</span>
+            <span><u>V</u>iew</span>
+            <span><u>H</u>elp</span>
+    </div>
+    <div class="notepad-bin-body">
+        Weekend to do list:<br>
+        <br>
+        - Get flowers to make custom bouquet<br>
+        - Pickup honey from local farm<br>
+        - Take a nature walk<br>
+        - Pick up dry cleaning<br>
+        - Make to do list for tomorrow<br>
+        - Deep clean my room and kitchen<br>
+        - Go grocery shopping for pizza and snacks for movie night<br>
+        - Get oil changed<br>
+        - Try a new hobby (gardening? chess? pottery?)
+    </div>
+<div class="status-bar">
+    <span>1 item(s)</span>
+    <span>Windows95</span>
+</div>
+</div>
+<!-- decoder note -->
+<div id="window67" class="window" style="display:none;">
+    <div class="window-top" >
+        <div class="title">
+            Decoder
+        </div>
+        <div class="window-buttons">
+            <button class="btn" onclick="closeDecoder()">X</button>
+        </div>
+    </div>
+    <div class="menu-bar">
+            <span><u>F</u>ile</span>
+            <span><u>E</u>dit</span>
+            <span><u>V</u>iew</span>
+            <span><u>H</u>elp</span>
+    </div>
+    <div class="notepad-bin-body">
+        A: ·- <br>
+        B: -··· <br>
+        C: -·-· <br>
+        D: -·· <br>
+        E: · <br>
+        F: ··-· <br>
+        G: --· <br>
+        H: ···· <br>
+        I: ·· <br>
+        J: ·--- <br>
+        K: -·- <br>
+        L: ·-·· <br>
+        M: -- <br>
+        N: -· <br>
+        O: --- <br>
+        P: ·--· <br>
+        Q: --·- <br>
+        R: ·-· <br>
+        S: ··· <br>
+        T: - <br>
+        U: ··- <br>
+        V: ···- <br>
+        W: ·-- <br>
+        X: -··- <br>
+        Y: -·-- <br>
+        Z: --·· <br>
+        <br>
+
+        1: ·---- <br>
+        2: ··--- <br>
+        3: ···-- <br>
+        4: ····- <br>
+        5: ····· <br>
+        6: -···· <br>
+        7: --··· <br>
+        8: ---·· <br>
+        9: ----· <br>
+        0: ----- <br>
+        <br>
+
+        .: ·-·-·- <br>
+        ,: --··-- <br>
+        ?: ··--·· <br>
+        !: -·-·-- <br>
+        @: ·--·-· <br>
+        /: -··-· <br>
+    </div>
+<div class="status-bar">
+    <span>1 item(s)</span>
+    <span>Windows95</span>
+</div>
+</div>
+
+<div id="window13" class="window" style="display: none;">
+    <div class="window-top">
+        <div class="title">
+            <img src="https://images2.imgbox.com/4b/79/9bZTvnOI_o.png" width="24px" height="24px" style="vertical-align: middle; margin-right: 5px;">
+            Tax Documents
+        </div>
+        <div class="window-buttons">
+            <button class="btn">X</button>
+        </div>
+    </div>
+    <div class="menu-bar">
+            <span><u>F</u>ile</span>
+            <span><u>E</u>dit</span>
+            <span><u>V</u>iew</span>
+            <span><u>H</u>elp</span>
+    </div>
+    <div class="recycling-bin-body">
+        <div class="iconsContainer">
+            <button class="item" onclick="openAlbum()">
+                <img src="https://images2.imgbox.com/a2/c9/L9TKcmsb_o.png" width="80px" height="80px">
+                <div class="textBlack">Photo Album</div>
+            </button>
+            <button class="item" onclick="openBank()">
+                <img src="https://images2.imgbox.com/a2/c9/L9TKcmsb_o.png" width="80px" height="80px">
+                <div class="textBlack">Stock <br>Information<br>Folder</div>
+            </button>
+            <button class="item" onclick="openPuzzleClue()">
+                <img src="https://images2.imgbox.com/a2/c9/L9TKcmsb_o.png" width="80px" height="80px">
+                <div class="textBlack">Manuscript Draft</div>
+            </button>
+                        <button class="item" onclick="openFlowers()">
+                <img src="https://images2.imgbox.com/fe/ac/Xl5BeJSo_o.png" width="80px" height="80px">
+                <div class="textBlack">Flower Readings.txt</div>
+            </button>
+            <button class="item" onclick="openLoveLetter()">
+                <img src="https://images2.imgbox.com/fe/ac/Xl5BeJSo_o.png" width="80px" height="80px">
+                <div class="textBlack">Letter.txt</div>
+            </button>
+        </div>
+    </div>
+    <div class="status-bar">
+        <span>3 item(s)</span>
+        <span>Windows95</span>
+    </div>
+</div>
+
+<!-- confetti -->
+  <script src="https://assets.codepen.io/16327/gsap-latest-beta.min.js"></script>
+  <script src="https://assets.codepen.io/16327/Physics2DPlugin3.min.js"></script>
+
+  <script>
+    
+    function confettiSound(){
+        const confettiSound = new Audio("audio/fireworks_pang01.mp3");
+        const kazoo = new Audio('audio/confetti-pop-sound.mp3');
+        confettiSound.play();
+        kazoo.play();
+    }
+    gsap.registerPlugin(Physics2DPlugin);
+
+    function openConfetti() {
+    document.getElementById('window80').style.display="block";
+    window80.style.zIndex = getMaxZIndex() + 1;
+      const emitter = document.getElementById("emitter");
+
+      for (let i = 0; i < 300; i++) {
+        const piece = document.createElement("div");
+        piece.className = "confetti";
+        emitter.appendChild(piece);
+        
+        const size = Math.random() * 10 + 5; // size between 5 and 15
+        const startX = window.innerWidth / 2 + (Math.random() - 0.5) * 200; // ±100px from center
+        const startY = window.innerHeight / 2 + (Math.random() - 0.5) * 100; // ±50px from center
+
+
+        gsap.set(piece, {
+          x: startX,
+          y: startY,
+          width: size,
+          height: size * 1.5,
+          backgroundColor: `hsl(${Math.random() * 360}, 100%, 50%)`,
+          borderRadius: Math.random() < 0.5 ? "50%" : "0%",
+          opacity: Math.random() * 0.5 + 0.5,
+          rotation: Math.random() * 360,
+          scale: Math.random() * 0.5 + 0.75
+        });
+
+        gsap.to(piece, {
+          duration: 3 + Math.random() * 1.5,
+          delay: Math.random() * 0.3,
+          physics2D: {
+            velocity: Math.random() * 600 + 100,
+            angle: Math.random() * 360,
+            gravity: 200
+          },
+          rotation: "+=" + Math.random() * 720,
+          onComplete: () => piece.remove()
+        });
+      }
+    }
+
+    openConfetti(); 
+  </script>
+
+<div id="window17" class="window" style="display:none;">
+    <div class="window-top">
+        <div class="title">
+            Letter
+        </div>
+        <div class="window-buttons">
+            <button class="btn">X</button>
+        </div>
+    </div> 
+    <div class="menu-bar">
+            <span><u>F</u>ile</span>
+            <span><u>E</u>dit</span>
+            <span><u>V</u>iew</span>
+            <span><u>H</u>elp</span>
+    </div>
+    <div class="notepad-bin-body">
+        Happy birthday!!!<br>
+
+        I hope your birthday feels like 
+        <button id ="bdayLink" onclick ="openConfetti(), confettiSound()">
+            <br>
+            <u>this</u>
+        </button>— bursting with color, excitement, and everything that makes life feel a little more alive.
+        <br>
+        <script>
+            window.onload = () => {
+                const params = new URLSearchParams(window.location.search);
+                const message = params.get("msg");
+                if (message) {
+                    const decodedMessage = decodeURIComponent(message);
+                    document.body.innerHTML = `<h2>Your Friend Sent You This Message:</h2><p>${decodedMessage}</p>`;
+                }
+            };
+        </script>
+    </div>
+<div class="status-bar">
+    <span>1 item(s)</span>
+    <span>Windows95</span>
+</div>
+</div>
+<!-- confetti -->
+<div id="emitter">
+    <script>
+        
+    </script>
+</div>
+
+<!-- bday cat window -->
+<div id="window80" class="window" style="display:none;">
+    <div class="window-top">
+    <div class="title"></div>
+    <span></span>
+      <div class="window-buttons">
+        <button class="btn" onclick="closebdaypic()">X</button>
+      </div>
+    </div>
+
+    <div id="virusBody">
+        <div class="puppyImage"> <img src="https://images2.imgbox.com/f2/37/Uji4Nq6G_o.jpg" width="420px" height="430px">
+            <br>
+        </div>
+            </div>
+        </div>
+
+<!-- dog poker -->
+<div id="window81" class="window" style="display:none;">
+    <div class="window-top">
+    <div class="title"></div>
+    <span></span>
+      <div class="window-buttons">
+        <button class="btn">X</button>
+      </div>
+    </div>
+
+    <div id="virusBody">
+        <div class="puppyImage"> <img src="https://images2.imgbox.com/82/8d/Ezo1z4FN_o.jpg" width="1000px" height="600px">
+            <br>
+        </div>
+            </div>
+        </div>
+
+<div id="dream-window" style="display:none;">
+    <div class="window-top">
+        <div class="title">
+            Weird Dream Again...
+        </div>
+        <div class="window-buttons">
+            <button class="btn" onclick="closeDreamNote()">X</button>
+        </div>
+    </div>
+    <div class="menu-bar">
+            <span><u>F</u>ile</span>
+            <span><u>E</u>dit</span>
+            <span><u>V</u>iew</span>
+            <span><u>H</u>elp</span>
+    </div>
+    <div class="notepad-bin-body">
+        Dream – April 16
+        <br>
+        Couldn’t shake this one.<br>
+        <br>
+        Started in a library that felt like it had no beginning or end. 
+        There was a staircase hidden between the shelves. Something felt off... I couldn't place what it was but all I knew was that I had to get the hell out of there. 
+        <br>
+        <br>Then, I looked up and I saw something was staring right at me. This enormous white cat with eyes like lanterns sat in front of me in silence. Like it was waiting or wanting to tell me something.
+        The cat guided me out of the library and we ended up on a beach, but there was no sky. Just reflections. The ocean looked like liquid metal, and the waves moved backwards. 
+        <br>
+        <br>I didn’t see anyone, but I felt like I was being watched by something.
+        This guy in a hood handed me a key. I don’t remember what his face looked like or even if he had one. I looked down at the key for a second trying to inspect it and before I could ask what the key was for, the guy vanished.
+        I remember seeing that your dreams are warnings for something about to happen...I wonder what it could mean...
+        
+    </div>
+<div class="status-bar">
+    <span>1 item(s)</span>
+    <span>Windows95</span>
+</div>
+</div>
+<!-- tnt clue -->
+<div id="window34" class="window" style="display:none;">
+    <div class="window-top">
+        <div class="title">
+            Manuscript Draft
+        </div>
+        <div class="window-buttons">
+            <button class="btn" onclick="closePuzzleClue()">X</button>
+        </div>
+    </div>
+    <div class="menu-bar">
+            <span><u>F</u>ile</span>
+            <span><u>E</u>dit</span>
+            <span><u>V</u>iew</span>
+            <span><u>H</u>elp</span>
+    </div>
+    <div class="notepad-bin-body-puzzle">
+<br>
+Aol Wyvwoljf vm aol Xbpla Whao<br>
+Av aol vul dov dhsrz dpao wbywvzl, fla zllrz uv mhtl—<br>
+<br>
+Fvb dpss ruvd aol yvhk if paz xbpla zalhkpulzz, uva if aol uvpzl vm aol dvysk hyvbuk fvb.<br>
+Fvby zaylunao dpss uva il zllu pu nyhuk nlzabylz, iba pu aol jhstulzz dpao dopjo fvb mhjl aol jvtpun khfz.<br>
+<br>
+Aoyll aopunz dpss nbpkl fvb:<br>
+- H jovpjl dolu vaolyz dvbsk olzpahal.<br>
+- H tvtlua vm zapssulzz dolu hss vaolyz ybzo.<br>
+- H xbpla ohuk vmmlylk dolu pa’z slhza lewljalk.<br>
+<i>aua svnpu jylkluaphsz</i><br>
+<br>
+<i>bzly uhtl: kplawlwzp</i><br>
+<br>
+<i>whzzdvyk: sbujoive</i><br>
+<br>
+Aol whao dpss uva hsdhfz il jslhy, iba fvb dpss mpuk pa if aybzapun aol nyvbuk ilulhao fvby mlla.<br>
+Aolyl dpss il uv nyhuk abyupun wvpua, uv zbkklu iypssphujl—vusf aol zalhkf hjjbtbshapvu vm zthss hjapvuz aoha dpss zohwl fvby dhf.<br>
+<br>
+Pu aptl, fvb dpss ylhspgl aoha fvb ohcl ibpsa zvtlaopun shzapun, aovbno fvb ulcly zvbnoa av kv zv.<br>
+<br>
+Huk dolu vaolyz svvr ihjr, aolf dpss zll aoha pa dhz fvby jhst wlyzpzalujl aoha thkl aol kpmmlylujl.<br>
+
+    </div>
+<div class="status-bar">
+    <span>1 item(s)</span>
+    <span>Windows95</span>
+</div>
+</div>
+<!-- stock information -->
+ <div id="window37" class="window" style="display:none;">
+    <div class="window-top">
+        <div class="title">
+            Stock Information
+        </div>
+        <div class="window-buttons">
+            <button class="btn" onclick="closePuzzleClue()">X</button>
+        </div>
+    </div>
+    <div class="menu-bar">
+            <span><u>F</u>ile</span>
+            <span><u>E</u>dit</span>
+            <span><u>V</u>iew</span>
+            <span><u>H</u>elp</span>
+    </div>
+
+
+<div class="tracker-container">
+    <h1>Stock Options Tracker</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Company</th>
+                <th>Ticker</th>
+                <th># of Options</th>
+                <th>Grant Price</th>
+                <th>Market Price</th>
+                <th>Vesting Date</th>
+                <th>Status</th>
+                <th>Notes</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Caesar Inc</td>
+                <td>SHFT7</td>
+                <td>7,000</td>
+                <td>$77.00</td>
+                <td>$7.25</td>
+                <td>2027-07-07</td>
+                <td>Vested</td>
+                <td class="notes">7-year cliff</td>
+            </tr>
+            <tr>
+                <td>AetherSys Inc</td>
+                <td>ASYSI</td>
+                <td>1,500</td>
+                <td>$8.75</td>
+                <td>$18.00</td>
+                <td>2025-11-15</td>
+                <td>Unvested</td>
+                <td class="notes">Pre-IPO; exercised partially in 2024</td>
+            </tr>
+            <tr>
+                <td>EchoWorks</td>
+                <td>ECHO8</td>
+                <td>3,000</td>
+                <td>$15.00</td>
+                <td>$13.20</td>
+                <td>2026-09-01</td>
+                <td>Unvested</td>
+                <td class="notes">Currently underwater</td>
+            </tr>
+            <tr>
+                <td>PersonalCo</td>
+                <td>PRSC0</td>
+                <td>10,000</td>
+                <td>$0.01</td>
+                <td>$1.00</td>
+                <td>N/A</td>
+                <td>Theoretical</td>
+                <td class="notes">Simulated startup grant for testing</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div class="status-bar">
+    <span>1 item(s)</span>
+    <span>Windows95</span>
+</div>
+</div>
+
+<!-- internet -->
+<div id="window3" class="window" style="display:none;">
+    <div class="window-top">
+        <div class="title">
+            <img src="https://images2.imgbox.com/7c/5e/GC399yaq_o.png" width="24px" height="24px" style="vertical-align: middle; margin-right: 5px;">
+            Google - Internet Explorer
+        </div>
+        <div class="window-buttons">
+            <button class="btn" onclick="closeInternet()">X</button>
+        </div>
+    </div>
+    <!-- Menu Bar -->
+    <div class="menu-bar" style="background: #c0c0c0; padding: 3px 5px; display: flex; gap: 10px; font-size: 14px;">
+            <span><u>F</u>ile</span>
+            <span><u>E</u>dit</span>
+            <span><u>V</u>iew</span>
+            <span><u>H</u>elp</span>
+    </div>
+    <div class="address">Address:
+        <input id="url" onkeydown="handleKeyPress(event)" autocomplete="off">
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="notepad-bin-body" style="padding: 10px; background-color: white; height: 85%; font-size: 14px;">
+        <div class="googleContainer">
+            <div class="google"><img src="https://images2.imgbox.com/46/2d/RvN8n9Ws_o.png" width="625px" height="225px"></div>
+            <div id="searchBar" class="searchBar"><input id="searchBox" onkeydown="handleKeyPress(event)" autocomplete="off"></div>
+            <div class="googleButtons">
+                <button id="internetError" class="search" onclick="openInternetError()">Google Search</button>
+                <button id="TNTPassword"class="search" onclick="openMorseNote()">I'm Feeling Lucky</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Status Bar -->
+    <div class="status-bar" style="background: #c0c0c0; padding: 4px 5px; display: flex; justify-content: space-between; font-size: 18px;">
+        <span>Connecting to site: 75.2.104.223</span>
+        <span><img src="https://images2.imgbox.com/7c/5e/GC399yaq_o.png" width="24px" height="24px" style="vertical-align: middle;"> Internet</span>
+    </div>
+</div>
+<!-- error message internet -->
+<div id="window60" class= "window" style="display:none;">
+    <div class="window-top">No Network Connection
+        <button class="btn" onclick="closeInternetError()">X</button>
+    </div>
+    
+    <div class="errorContentsInternet">
+        <div class="errorIcon"><img src="https://images2.imgbox.com/3f/15/q2YZjhv6_o.png" width="85px" height="80px"></div>
+        <div class="errorMessageInternet">
+            <br>A connection with the server could not be established.</div>
+    </div>
+    <div class="errorButtonContainer">
+        <button id="OKinternet" onclick="closeInternetError()">OK</button>
+    </div>
+</div>
+
+
+<!-- google search clue-->
+<div id="window15" class="window" style="display:none;">
+    <div class="window-top">
+        <div class="title">
+            Hidden Manuscript Found in Rome
+        </div>
+        <div class="window-buttons">
+            <button class="btn" onclick="closeMorseNote()">X</button>
+        </div>
+    </div>
+    <div class="menu-bar">
+            <span><u>F</u>ile</span>
+            <span><u>E</u>dit</span>
+            <span><u>V</u>iew</span>
+            <span><u>H</u>elp</span>
+    </div>
+    <div class="notepad-bin-body">
+<br>
+<i style="font-size: 23px;">The Cipher of Kings: A Hidden Message in an Ancient Manuscript</i><br>
+By Eleanor Wren<br>
+Published: May 13, 2025<br>
+<br>
+In a dusty corner of a forgotten archive, researchers have unearthed an ancient manuscript filled with intrigue and mystery. The parchment, weathered with time, contains a puzzling sequence of letters—seemingly familiar, yet disturbingly out of order. At first glance, the markings resemble modern English. But their arrangement challenges conventional understanding.<br>
+<br>
+Beneath the strange lettering, a fragment of text remains intact—just enough to raise eyebrows and questions alike:<br>
+<br>
+<i>“The key to unlocking the mystery lies in understanding what Caesar knew.”</i><br>
+<br>
+Unfortunately, the remainder of the message appears to have been violently torn away, denying investigators further context. But the mention of a certain Roman leader has caught the attention of historians and cryptographers alike. After all, Caesar was known not only for his conquests—but for the ways in which he concealed his thoughts from enemies.<br>
+<br>
+As if to fan the flames of speculation, a second slip of parchment was discovered nearby, written in an elegant, looping script:<br>
+<br>
+<i>“A leader’s power is not just in his command, but in his code. Shift to find the truth hidden in plain sight.”</i><br>
+<br>
+The phrase <i>"shift to find the truth"</i> has stirred particular curiosity. Could it be a reference to movement—not just of armies, but of letters? Of meaning obscured through subtle transpositions?<br>
+<br>
+One expert remarked, <i>“Sometimes, the most powerful messages are those we overlook, simply because we expect them to be complex. But the simplest forms of concealment are often the most enduring.”</i><br>
+<br>
+For now, the manuscript’s true message remains a mystery. <br>
+<br>
+But if the past has taught us anything, it’s that no code is unbreakable—especially when the key lies not in brute force, but in understanding the minds that came before.<br>
+<br>
+    </div>
+    <div class="status-bar">
+        <span>1 item(s)</span>
+        <span>Windows95</span>
+    </div>
+</div>
+<!-- notepad -->
+    <div id="window4" class="window" style= "display: none">
+        <div class="window-top">
+          <div class="title">
+            <img src = "https://images2.imgbox.com/fe/ac/Xl5BeJSo_o.png" width="24px" height="24px" style="vertical-align: middle; margin-right: 5px;">
+            Untitled - Notepad</div>
+          <div class="window-buttons">
+            <button class="btn">X</button>
+          </div>
+        </div>
+        <div class="menu-bar">
+            <span><u>F</u>ile</span>
+            <span><u>E</u>dit</span>
+            <span><u>V</u>iew</span>
+            <span><u>H</u>elp</span>
+        </div>
+        <textarea id="notepad" placeholder="Click Enter to Save..." onkeydown="handleKeyPress(event)"></textarea>
+        <div class="status-bar">
+          <span>Ln 1, Col 1</span>
+          <span>Windows95</span>
+        </div>
+    </div>
+
+
+
+
+<div id="user-detected-window" style="display:none;">
+    <div class="lastMessage">
+        <div class="warningMessage">WARNING</div>
+        <div>UNAUTHORIZED USER DETECTED</div>
+        <div class="warningMessage3">SYSTEM WILL SHUT DOWN NOW</div>
+    </div>
+</div>
+
+<div id="window9" class="window" style="display:none;">
+    <div class="window-top">
+        <div class="title">
+            <img src="https://images2.imgbox.com/7c/0c/4ZvjsVYa_o.png" width="24px" height="24px" style="vertical-align: middle; margin-right: 5px;">
+            System Settings
+        </div>
+        <div class="window-buttons">
+            <button class="btn" onclick="closeSettings()">X</button>
+        </div>
+    </div>
+    <div class="tabs">
+      <div class="tab active">Background</div>
+      <div class="tab">Screen Saver</div>
+      <div class="tab">Appearance</div>
+      <div class="tab">Settings</div>
+    </div>
+
+    <div class="content">
+        <div class="display-preview">
+            <div class="computerDisplay"><img src ="https://images2.imgbox.com/33/f3/bBQEM1CG_o.png"></div>
+            <div class="previewComputer" id="preview"></div>
+        </div>
+        <div class="colorTitle">Default Color</div>
+        <div class="color-grid" id="colorGrid">
+            <button class="color-cell" style="background-color: #008081;" onclick="selectColor(this)"></button>
+        </div>
+        <div class="colorTitle">Basic Colors:</div>
+        
+    <div class="color-grid" id="colorGrid">
+        <button class="color-cell" style="background-color: #FFFFFF;" onclick="selectColor(this)"></button>
+        <button class="color-cell" style="background-color: #C0C0C0;" onclick="selectColor(this)"></button>
+        <button class="color-cell" style="background-color: #808080;" onclick="selectColor(this)"></button>
+        <button class="color-cell" style="background-color: #000000;" onclick="selectColor(this)"></button>
+        <button class="color-cell" style="background-color: #FF0000;" onclick="selectColor(this)"></button>
+        <button class="color-cell" style="background-color: #800000;" onclick="selectColor(this)"></button>
+        <button class="color-cell" style="background-color: #FFFF00;" onclick="selectColor(this)"></button>
+        <button class="color-cell" style="background-color: #808000;" onclick="selectColor(this)"></button>
+        <button class="color-cell" style="background-color: #00FF00;" onclick="selectColor(this)"></button>
+        <button class="color-cell" style="background-color: #008000;" onclick="selectColor(this)"></button>
+        <button class="color-cell" style="background-color: #00FFFF;" onclick="selectColor(this)"></button>
+        <button class="color-cell" style="background-color: #008080;" onclick="selectColor(this)"></button>
+        <button class="color-cell" style="background-color: #9900ff;" onclick="selectColor(this)"></button>
+        <button class="color-cell" style="background-color: #000080;" onclick="selectColor(this)"></button>
+        <button class="color-cell" style="background-color: #FF00FF;" onclick="selectColor(this)"></button>
+        <button class="color-cell" style="background-color: #800080;" onclick="selectColor(this)"></button>
+        <button class="color-cell" style="background-color: #FFA500;" onclick="selectColor(this)"></button>
+        <button class="color-cell" style="background-color: #ff93bb;" onclick="selectColor(this)"></button>
+        <button class="color-cell" style="background-color: #b20c76;" onclick="selectColor(this)"></button>
+        <button class="color-cell" style="background-color: #D2B48C;" onclick="selectColor(this)"></button>
+        <button class="color-cell" style="background-color: #90baee;" onclick="selectColor(this)"></button>
+        <button class="color-cell" style="background-color: #ff8800;" onclick="selectColor(this)"></button>
+        <button class="color-cell" style="background-color: #ff0066;" onclick="selectColor(this)"></button>
+        <button class="color-cell" style="background-color: #FFD700;" onclick="selectColor(this)"></button>
+        <button class="color-cell" style="background-color: #1c2974;" onclick="selectColor(this)"></button>
+        <button class="color-cell" style="background-color: #D2B48C;" onclick="selectColor(this)"></button>
+        <button class="color-cell" style="background-color: #90EE90;" onclick="selectColor(this)"></button>
+        <button class="color-cell" style="background-color: #006c00;" onclick="selectColor(this)"></button>
+        <button class="color-cell" style="background-color: #FFC0CB;" onclick="selectColor(this)"></button>
+        <button class="color-cell" style="background-color: #0d00ff;" onclick="selectColor(this)"></button>
+        <button class="color-cell" style="background-color: #6e51a7;" onclick="selectColor(this)"></button>
+        <button class="color-cell" style="background-color: #ff0077;" onclick="selectColor(this)"></button>
+    </div>
+    <div class="colorTitle"> Custom Color:</div>
+        <div id="colorGrid">
+            <input type="color" id="colorPicker" name="colorPicker" style="margin-top: 10px; margin-bottom: 10px;">
+        </div>
+      <div class="buttons">
+        <button onclick="applyColor()">OK</button>
+        <button onclick="cancelColor()">Cancel</button>
+        <button onclick="applyColor()">Apply</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- bouquet window -->
+<div id="window51" class="window" style="display:none;">
+    <div class="window-top">
+        <div class="title">
+            Flower Bouquet 
+        </div>
+        <div class="window-buttons">
+            <button class="btn" onclick="closeSticker2()">X</button>
+        </div>
+    </div>
+    <div class="menu-bar">
+            <span><u>F</u>ile</span>
+            <span><u>E</u>dit</span>
+            <span><u>V</u>iew</span>
+            <span><u>H</u>elp</span>
+    </div>
+    <div class="notepad-bin-body-bouquet">
+        <img src="https://images2.imgbox.com/91/f7/DiXAimUo_o.png" width="500px" height="500px">
+        <div class="flower-hotspot" style="top: 270px; left: 170px;">
+            <div class="tooltip">
+                Rose
+                <div class="tooltip-arrow"></div>
+            </div>
+        </div>
+        <div class="flower-hotspot" style="top: 150px; left: 380px;">
+            <div class="tooltip">
+                Lavender
+                <div class="tooltip-arrow"></div>
+            </div>
+        </div>
+        <div class="flower-hotspot" style="top: 120px; left: 260px;">
+            <div class="tooltip">
+                Fern
+                <div class="tooltip-arrow"></div>
+            </div>
+        </div>
+    
+        <div class="flower-hotspot" style="top: 300px; left: 250px;">
+            <div class="tooltip">
+                Lily
+                <div class="tooltip-arrow"></div>
+            </div>
+        </div>
+        <div class="flower-hotspot" style="top: 250px; left: 100px;">
+            <div class="tooltip">
+                Amaryllis
+                <div class="tooltip-arrow"></div>
+            </div>
+        </div>
+        <div class="flower-hotspot" style="top: 195px; left: 245px;">
+            <div class="tooltip">
+                Sunflower
+                <div class="tooltip-arrow"></div>
+            </div>
+        </div>
+        
+        
+    </div>
+<div class="status-bar">
+    <span>1 item(s)</span>
+    <span>Windows95</span>
+</div>
+</div>
+
+<!-- chimken window -->
+<div id="window50" class="window" style="display:none;">
+    <div class="window-top">
+        <div class="title">
+            Chicken Sandwich Coupon 
+        </div>
+        <div class="window-buttons">
+            <button class="btn" onclick="closeSticker3()">X</button>
+        </div>
+    </div>
+    <div class="menu-bar">
+            <span><u>F</u>ile</span>
+            <span><u>E</u>dit</span>
+            <span><u>V</u>iew</span>
+            <span><u>H</u>elp</span>
+    </div>
+    <div class="notepad-bin-body-chimken">
+        <img src="https://images2.imgbox.com/47/9b/e917d82B_o.png">
+    </div>
+<div class="status-bar">
+    <span>1 item(s)</span>
+    <span>Windows95</span>
+</div>
+</div>
+
+<!-- error message -->
+    <div id="window27" class="window" style="display: none;">
+        <div class="window-top">
+            <div class="title">
+                <img src="https://images2.imgbox.com/3f/15/q2YZjhv6_o.png" width="26px" height="24px" style="vertical-align: middle; margin-right: 5px;">
+                Invalid Credentials
+            </div>
+            <div class="window-buttons">
+                <button class="btn" onclick="closeError()">X</button>
+            </div>
+        </div>
+        
+        <div class="errorContents">
+            <div class="errorIcon"><img src="https://images2.imgbox.com/3f/15/q2YZjhv6_o.png" width="84px" height="80px"></div>
+            <div class="errorMessage">Incorrect user name or password. <br>Please try again.</div>
+        </div>
+        <div class="errorButtonContainer">
+            <button id="OK" style="margin-left: 40px;" onclick="closeError()">OK</button>
+        </div>
+    </div>
+
+<!-- photo album -->
+  <div id="window19" class="window" style="display:none;">
+    <div class="window-top">
+        <div class="title">
+            Photo Album
+        </div>
+        <div class="window-buttons">
+            <button class="btn" onclick="closeAlbum()">X</button>
+        </div>
+    </div>
+    <div class="menu-bar">
+            <span><u>F</u>ile</span>
+            <span><u>E</u>dit</span>
+            <span><u>V</u>iew</span>
+            <span><u>H</u>elp</span>
+    </div>
+    <div class="window-content">
+        <div class="controls">
+          <button class="albumControls" onclick="prevPhotos()">◄</button>
+          <div class="photo-strip" id="photo-strip"></div>
+          <button class="albumControls" onclick="nextPhotos()">►</button>
+        </div>
+      </div>
+    <div class="status-bar">
+        <span>6 item(s)</span>
+        <span>Windows95</span>
+    </div>
+    </div>
+    
+
+<!-- brick breaker -->
+    <div id="window10" class="window" style="display:none;">
+        <div class="window-top"><img src="https://images2.imgbox.com/8d/f9/sbG8pcn3_o.png" width ="24px" height="24px"><div style="position: absolute; left: 40px; font-size: 20px;">Brick Breaker</div>
+            <button class="helpPassword" onclick="openHowtoplay()">?</button>
+            <button class="btn" onclick="exitBrickBreaker()">X</button>
+        </div>
+        <div id="gameOverMessage"></div>
+        <canvas id="board"></canvas>
+    </div>
+<!-- howtoplay -->
+<div id="window21" class="window" style="display: none;">
+    <div class="window-top">
+        <div class="title">
+            <img src="https://images2.imgbox.com/a6/9c/xT3WTdAl_o.png" width="26px" height="24px" style="vertical-align: middle; margin-right: 5px;"> How to Play
+        </div>
+        <div class="window-buttons">
+            <button class="btn" onclick="closeHowtoplay()">X</button>
+        </div>
+    </div>
+    
+    <div class="errorContents">
+        <div class="errorIcon"><img src="https://images2.imgbox.com/a6/9c/xT3WTdAl_o.png" width="84px" height="80px"></div>
+        <div class="errorMessage">Clear all the bricks to <br>become a Brickmaster!</div>
+    </div>
+    <div class="errorButtonContainer">
+        <button id="OK" onclick="closeHowtoplay()">OK</button>
+    </div>
+</div>
+<!-- virus window -->
+<div id="window40" class="window" style="display:none; z-index: 100000;">
+    <div class="window-top">
+    <div class="title"></div>
+    <span></span>
+      <div class="window-buttons">
+        <button class="btn" onclick="closeVirus()">X</button>
+      </div>
+    </div>
+
+    <div id="virusBody">
+        <div class="puppyImage"> <img src="https://images2.imgbox.com/e9/a0/5U3YZRlO_o.jpeg" width="400px" height="400px">
+            <br>
+        </div>
+            </div>
+            <div class="status-bar">
+                <span>4 object(s)</span>
+                <span>Windows95</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+    </div>
+
+    </div>
+   
+</div>
+
+
+    </div>
+
+<script>
+const clickSound = document.getElementById("clickSound");
+
+document.querySelectorAll('button').forEach(button => {
+    button.addEventListener('click', () => {
+        clickSound.currentTime = 0; 
+        clickSound.play();
+    });
+});
+</script>
+
+<script src="photoAlbum.js"></script>
+<script src="msdos.js"></script>
+<script src="taxInformation.js"></script>
+<script src="notepad.js"></script>
+<script src="TNTlogin.js"></script>
+<script src="systemSettings.js"></script>
+<script src="draggable.js"></script>
+
+</body>
+
+</html>
+

@@ -1,0 +1,114 @@
+@font-face {
+    font-family: windows95Font;
+    src: url(W95FA.otf);
+}
+body{
+    background-color: rgb(0, 0, 0);
+}
+#userName, #confirmation {
+    font-family: windows95font, monospace;
+    font-size: 18px;
+    color: rgb(56, 255, 69);
+    background: transparent;
+    border: none;
+    outline: none;
+    text-align: left;
+    text-transform: uppercase;
+    letter-spacing: 2.2px;
+}
+
+#typedtext{
+    color: rgb(57, 197, 67);
+    font-family: windows95font;
+    font-size: 18px;
+    height: 80px;
+    letter-spacing: 2.2px;
+    width: 100%;
+    text-transform: capitalize;
+    position: absolute;
+    top: 5%;
+    width: 85%;
+}
+#endBlock{
+    border: 2px solid black;
+    font-family: 'windows95Font', sans-serif;
+    overflow: hidden;
+    background-color: #000000;
+    width: 900px;
+    height: 500px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    overflow-y: auto;
+    border: 2px solid;
+    border-color: #ffffff #808080 #808080 #ffffff;
+    background-color: #000000;
+    box-shadow: inset -1px -1px 0 #000000, inset 1px 1px 0 #dfdfdf;
+    padding: 4px;
+}
+
+#endBlock::-webkit-scrollbar {
+    display: none;
+}
+.center-container{
+    height: 800px;
+    position: absolute;
+    width: 85%;
+    left: 5%;
+    overflow: visible;
+    overflow-x: none;
+}
+
+.btn {
+    width: 24px;
+    height: 24px;
+    color: rgb(0, 0, 0);
+    background-color: #c0c0c0;
+    font-family: windows95font;
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+    position: absolute;
+    border: 2px solid;
+    border-color: #ffffff #808080 #808080 #ffffff;
+    box-shadow: inset -1px -1px 0 #878787, inset 1px 1px 0 #dfdfdf;
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    right: 10px;
+}
+.window-top{
+    background: navy;
+    color: white;
+    padding: 4px 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 26px;
+    font-family: windows95Font;
+    width: 99%;
+    overflow: hidden;
+    font-size: 16px;
+    cursor: grab;
+    margin: auto;
+    position: sticky;
+    top: 0;
+    font-size: 20px;
+    letter-spacing: 1.2px;
+} 
+
+.window{
+    border: 4px solid;
+    border-color: #ffffff #808080 #808080 #ffffff;
+    background-color: #c0c0c0;
+    box-shadow:
+    inset 1px 1px 0 #808080,   /* Top-left inner shadow */
+    inset -1px -1px 0 #070707;     /* Bottom-right inner highlight */
+    padding: 4px;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+
+}

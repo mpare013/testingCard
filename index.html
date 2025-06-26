@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="index.css">
+    <title>start</title>
+    <meta name="keywords" content="HTML, CSS, JavaScript">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Melissa Paredes">
+</head>
+
+<body>
+
+<div class="center-container">
+    <div id="typedtext"></div>
+</div>
+
+<!-- Typing sound -->
+<audio id="typeSound" src="audio/morse-code-131798.mp3" preload="auto"></audio>
+<script src="index.js"></script>
+<script>
+    var introText = new Array(
+        "FOR SECURITY REASONS, PLEASE IDENTIFY YOURSELF. WHAT'S YOUR NAME?"
+    );
+
+    var aText = new Array(
+        "<br>",
+        "MISSION: LOCATE THE DOCTOR'S APPOINTMENT DATE & TIME.",
+        "<br>",
+        "OPTIONAL: GATHER ANY ADDITIONAL INTEL WHILE INSIDE.",
+        "THESE MESSAGES WILL DISAPPEAR MOMENTARILY, GOOD LUCK."
+    );
+
+    var iSpeed = 100;
+    var iIndex = 0;
+    var iArrLength = introText[0].length;
+    var iScrollAt = 20;
+
+    var iTextPos = 0;
+    var sContents = '';
+    var iRow;
+
+    var currentArray = introText;
+    var typingIntroDone = false;
+    var typingActive = true;
+
+    function typewriter() {
+        sContents = '';
+        iRow = Math.max(0, iIndex - iScrollAt);
+        var destination = document.getElementById("typedtext");
+
+        while (iRow < iIndex) {
+            sContents += currentArray[iRow++] + '<br />';
+        }
+
+        var currentChar = currentArray[iIndex].charAt(iTextPos);
+
+        destination.innerHTML = sContents + currentArray[iIndex].substring(0, iTextPos) + "_";
+
+        // Play sound when typing is happening
+        if (
+            typingActive &&
+            currentChar !== " " &&
+            currentChar !== "\n" &&
+            currentChar !== "" &&
+            iTextPos !== iArrLength
+        ) {
+            var sound = document.getElementById("typeSound");
+            sound.currentTime = 0;
+            sound.play();
+        }
+
+        if (iTextPos++ == iArrLength) {
+            iTextPos = 0;
+            iIndex++;
+
+            // Stop sound between lines
+            var sound = document.getElementById("typeSound");
+            sound.pause();
+            sound.currentTime = 0;
+
+            if (iIndex != currentArray.length) {
+                iArrLength = currentArray[iIndex].length;
+                setTimeout(typewriter, 900);
+            } else {
+                // Finished introText → add input field
+                if (currentArray === introText && !typingIntroDone) {
+                    typingIntroDone = true;
+                    typingActive = false;
+
+                    destination.innerHTML = sContents +
+                        `${introText[introText.length - 1]}
+                            <input type="text" id="userName" autocomplete="off"
+                                onkeydown="if(event.key === 'Enter') submitName()">`;
+                    document.getElementById("userName").focus();
+                }
+                else if (currentArray !== introText) {
+                    // Redirect to login.html after a brief delay
+                    setTimeout(function() {
+                        window.location.href = "login.html";  // Redirect to login page
+                    }, 2000);  // Wait 2 seconds after the typewriter finishes
+                }
+            }
+        } else {
+            setTimeout(typewriter, iSpeed);
+        }
+    }
+
+    function submitName() {
+        var name = document.getElementById("userName").value;
+        name = name.trim().toUpperCase();
+        if (name === "") return;
+
+        // Greeting
+        var greeting = "HELLO " + name + " CODE NAME 'PB013'" + ". YOU'VE BEEN GRANTED ACCESS TO THIS DESKTOP ENVIRONMENT.";
+
+        // Add personalized greeting at the beginning of aText
+        currentArray = [greeting, ...aText];
+
+        // Reset typing variables
+        iIndex = 0;
+        iTextPos = 0;
+        iArrLength = currentArray[0].length;
+        typingActive = true;
+
+        // Clear the screen and start typewriter again
+        document.getElementById("typedtext").innerHTML = "";
+        setTimeout(typewriter, 1000);
+    }
+
+    typewriter();
+
+</script>
+
+</body>
+</html>

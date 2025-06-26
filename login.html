@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<head>
+    <link rel="stylesheet" href="login.css">
+    <title>Login</title>
+    <meta name="keywords" content= "HTML, CSS, JavaScript">
+    <meta lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content= "width=device-width, initial-scale=1.0">
+    <meta name="author" content= "Melissa Paredes">
+</head>
+<body>
+    <audio id="clickSound" src="audio/click.mp3"></audio>
+<div id="backgroundColor">
+    <div class="loginInformation">
+        <div class="window-top"><img src="https://images2.imgbox.com/a3/c4/Si7j6VmP_o.png" width ="24px" height="24px"><div style="position: absolute; left: 40px; font-size: 20px;">Enter Valid Credentials</div>
+            <button class="helpPassword" onclick="openHint()">?</button>
+            <button class="btn" onclick="closeHint()">X</button>
+        </div>
+            <div class ="passwordContainer">
+                <div class="passwordImage"><img src ="https://images2.imgbox.com/59/77/T7y2Jmy2_o.png" width ="80px" height="80px"></div>
+                <div class="middleColumn">
+                    <div class="passwordText1">Type a name to identify yourself to Windows.</div>
+                    <div class="passwordText2">Enter a password to access protected files.</div>
+                            
+                    <div class="userInformation">
+                        <div class="inputContainer"> 
+                            <div class="userLabels">
+                                <div class="usernameLabel"><u>U</u>ser name:  </div>
+                                <div class="passwordLabel"><u>P</u>assword:   </div>
+                            </div>
+                            <div class="userInformationInput">
+                                <input type="text" id="username" class="usernameInputBox" autocomplete="off" onkeydown="handleKeyPress(event)">
+                                <input type="password" id="password" class="passwordInputBox" autocomplete="off" onkeydown="handleKeyPress(event)">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="confirmation">
+                    <button id="OK" onclick="login()"> OK </button>
+                    <button id="Cancel"> Cancel </button>
+                </div>
+        </div>
+    </div>
+
+<!-- error message -->
+    <div id="window27" class="window" style="display: none;">
+        <div class="window-top">
+            <div class="title">
+                <img src="https://images2.imgbox.com/3f/15/q2YZjhv6_o.png" width="26px" height="24px" style="vertical-align: middle; margin-right: 5px;">
+                Invalid Credentials
+            </div>
+            <div class="window-buttons">
+                <button class="btn" onclick="closeError()">X</button>
+            </div>
+        </div>
+        
+        <div class="errorContents">
+            <div class="errorIcon"><img src="https://images2.imgbox.com/3f/15/q2YZjhv6_o.png" width="84px" height="80px"></div>
+            <div class="errorMessage">Incorrect user name or password. <br>Please try again.</div>
+        </div>
+        <div class="errorButtonContainer">
+            <button id="OKerror" style="margin-left: 40px;" onclick="closeError()">OK</button>
+        </div>
+    </div>
+
+    <div id="hint-message" class="hint-message" style="display: none;">
+        <div class="window-top"><img src="https://images2.imgbox.com/62/28/eU9tycC9_o.png" width ="32px" height="24px"><div style="position: absolute; left: 40px; font-size: 20px;">Invalid Credentials</div>
+            <button class="btn" onclick="closeHint()">X</button>
+        </div>
+        <div class="hintContents">
+            <div class="hintIcon"><img src="https://images2.imgbox.com/62/28/eU9tycC9_o.png" width="70px" height="70px"></div>
+            <div class="hintMessage">User name: strawberry <br> Password: The year Wikipedia was born.</div>
+        </div>
+        <div class="hintButtonContainer">
+            <button class="OKhint" onclick="closeHint()">OK</button>
+        </div>
+
+    </div>
+
+    <div class="taskbar">
+        <div class="clock"></div>
+    </div>
+
+
+</div>
+<script>
+    const clickSound = document.getElementById("clickSound");
+    
+    document.querySelectorAll('button').forEach(button => {
+        button.addEventListener('click', () => {
+            clickSound.currentTime = 0; 
+            clickSound.play();
+        });
+    });
+</script>
+<script>
+    function makeDraggable(windowEl) {
+    const windowTop = windowEl.querySelector('.window-top');
+
+    if (!windowTop) return;
+
+    let offsetX = 0, offsetY = 0;
+    let isDragging = false;
+
+    const onMouseDown = (e) => {
+        e.preventDefault(); // Prevent text selection
+
+        // Get initial mouse position relative to the window
+        const rect = windowEl.getBoundingClientRect();
+        offsetX = e.clientX - windowEl.offsetLeft;
+        offsetY = e.clientY - windowEl.offsetTop;
+
+
+        isDragging = true;
+
+        // Bring to front
+        windowEl.style.zIndex = getMaxZIndex() + 1;
+
+        document.addEventListener('mousemove', onMouseMove);
+        document.addEventListener('mouseup', onMouseUp);
+    };
+
+    const onMouseMove = (e) => {
+        if (!isDragging) return;
+
+        const newLeft = e.clientX - offsetX;
+        const newTop = e.clientY - offsetY;
+
+        windowEl.style.left = `${newLeft}px`;
+        windowEl.style.top = `${newTop}px`;
+    };
+
+    const onMouseUp = () => {
+        isDragging = false;
+        document.removeEventListener('mousemove', onMouseMove);
+        document.removeEventListener('mouseup', onMouseUp);
+    };
+
+    windowTop.addEventListener('mousedown', onMouseDown);
+}
+
+
+// Function to get the maximum z-index of all windows
+function getMaxZIndex() {
+    let maxZIndex = 0;
+    document.querySelectorAll('.window').forEach(windowEl => {
+        const zIndex = parseInt(windowEl.style.zIndex, 10) || 0;
+        maxZIndex = Math.max(maxZIndex, zIndex);
+    });
+    return maxZIndex;
+}
+
+// Function to bring the window to the front
+function bringWindowToFront(windowEl) {
+    const currentMaxZIndex = getMaxZIndex();
+    windowEl.style.zIndex = currentMaxZIndex + 1;
+}
+
+
+//close a specific virus window
+function closeVirus(windowEl) {
+    // hide but not get rid of the specific window that the close button was clicked in
+    windowEl.style.display = "none";
+}
+
+// open virus windows with draggable functionality
+function openVirus() {
+    const errorSoundPath = 'audio/errorSound.mp3';
+    const numberOfPopups = 20;
+
+    const maxX = document.documentElement.clientWidth;
+    const maxY = document.documentElement.clientHeight;
+
+    const virusWindowTemplate = document.getElementById("window40");
+    const inboxIndex = document.getElementById('window2');
+    const errorInternetIndex = document.getElementById('window60');
+    for (let i = 0; i < numberOfPopups; i++) {
+        setTimeout(() => {
+            const newWindow = virusWindowTemplate.cloneNode(true);
+
+            newWindow.style.display = "block";
+            newWindow.style.position = "absolute"; 
+            newWindow.classList.add('virus-window');
+
+            // random position for the new window
+            const randomX = Math.random() * (maxX - newWindow.offsetWidth); 
+            const randomY = Math.random() * (maxY - newWindow.offsetHeight);
+
+            newWindow.style.left = `${randomX}px`;
+            newWindow.style.top = `${randomY}px`;
+
+            // Set an initial z-index for all windows
+            inboxIndex.style.zIndex = 1;
+
+            // Add event listener to update z-index when clicked
+            newWindow.addEventListener("click", () => {
+                // Set the highest z-index when clicked
+                newWindow.style.zIndex = getMaxZIndex() + 1;
+            });
+
+
+            const closeButton = newWindow.querySelector('.btn'); // Assuming the button has class .btn
+            if (closeButton) {
+                closeButton.addEventListener('click', () => {
+                    closeVirus(newWindow); // Close the current window
+                });
+            }
+
+            // Make the new window draggable by the .window-top
+            makeDraggable(newWindow);
+
+            document.body.appendChild(newWindow);
+
+            // Play sound on each popup appearance
+            const sound = new Audio(errorSoundPath);
+            sound.play();
+        }, i * 100); 
+    }
+}
+
+
+document.querySelectorAll('.window').forEach(windowEl => {
+    makeDraggable(windowEl);
+
+    // Whenever the window is interacted with (mousedown = click/drag start), bring it to front
+    windowEl.addEventListener('mousedown', () => {
+        bringWindowToFront(windowEl);
+    });
+});
+
+
+document.addEventListener('click', e => {
+  if (e.target.closest('.btn')) {
+    const windowEl = e.target.closest('.window');
+    if (windowEl) {
+      windowEl.style.display = "none"; 
+    }
+  }
+});
+
+
+    document.addEventListener('DOMContentLoaded', function() {
+    const startBtn = document.getElementById('start');
+    const startMenuContainer = document.getElementById('startMenuContainer');
+
+
+
+
+});
+
+</script>
+<script src="index.js"></script>
+</body>
+</html>
+

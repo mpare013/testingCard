@@ -1,0 +1,480 @@
+@font-face {
+    font-family: windows95Font;
+    src: url(W95FA.otf);
+}
+html, body{
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    margin:0%;
+    font-family: windows95font;
+}
+span{
+    margin-left: 10px;
+}
+
+
+.window-top{
+    background: navy;
+    color: white;
+    padding: 4px 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 26px;
+    font-family: windows95Font;
+    width: 99%;
+    overflow: hidden;
+    font-size: 16px;
+    cursor: grab;
+    margin: auto;
+    position: sticky;
+    top: 0;
+    font-size: 20px;
+    letter-spacing: 1.2px;
+} 
+.loginInformation{
+    position: fixed;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 270px;
+    width: 650px;
+    background-color: silver;
+    font-family: 'windows95Font', sans-serif;
+    overflow: hidden;
+    border: 3px solid;
+    border-color: #ffffff #808080 #808080 #ffffff;
+    background-color: #c0c0c0;
+    box-shadow: inset -1px -1px 0 #000000, inset 1px 1px 0 #dfdfdf;
+    padding: 4px;
+
+}
+
+.button{
+    border: transparent;
+}
+
+.helpPassword{
+    position: absolute;
+    right:5%;
+}
+#exitLogin, .exitPassword, .exitHint{
+    position: absolute;
+    right:1%;
+}
+
+  
+  .helpPassword{
+    cursor: pointer;
+    width: 24px;
+    height: 24px;
+    font-size: larger;
+    align-items: center;
+    text-align: center;
+    color: black;
+    background-color: #c0c0c0;
+    position: absolute;
+    right: 40px;
+    font-family: windows95font;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    border: 2px solid;
+    border-color: #ffffff #808080 #808080 #ffffff;
+    box-shadow: inset -1px -1px 0 #878787, inset 1px 1px 0 #dfdfdf;
+}
+
+.passwordContainer{
+    display: flex;
+    align-items: stretch;
+    margin-top: 25px;
+}
+.passwordImage{
+    margin-left: 40px;
+}
+
+.passwordText1, .passwordText2, .userInformation{
+    font-family: windows95font;
+    color: black;
+    font-size:19px;
+}
+.passwordText2{
+    margin-top: 15px;
+}
+.middleColumn{
+    margin-left: 15px;
+    margin-right: 15px;
+}
+.inputContainer{
+    display: flex;
+    flex-direction: row;
+}
+.userInformationInput{
+    display: flex;
+    flex-direction: column;
+}
+
+.usernameInputBox{
+    cursor: text;
+    width: 100%;
+    height: 30px;
+    border-style: solid;
+    margin-left: 5px;
+    border-width: 1px;
+    background-color: white;
+    font-family: windows95font;
+    font-size: larger;
+    outline:none;
+    border-color:#000;
+    
+}
+
+.btn {
+    color: rgb(0, 0, 0);
+    font-family: windows95font;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    outline: transparent;
+}
+
+.btn {
+    width: 24px;
+    height: 24px;
+    color: rgb(0, 0, 0);
+    background-color: #c0c0c0;
+    font-family: windows95font;
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+    position: absolute;
+    border: 2px solid;
+    border-color: #ffffff #808080 #808080 #ffffff;
+    box-shadow: inset -1px -1px 0 #878787, inset 1px 1px 0 #dfdfdf;
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    right: 10px;
+}
+
+.passwordInputBox{
+    cursor: text;
+    width: 100%;
+    height: 30px;
+    margin-top: 17px;
+    margin-left: 5px;
+    border-style: solid;
+    border-width: 1px;
+    background-color: white;
+    font-family: windows95font;
+    font-size: large;
+    outline: none;
+    border-color:#000;
+}
+.passwordLabel{
+    margin-top: 25px;
+}
+.userInformation{
+    display:flex;
+    flex-direction: column;
+    margin-top: 20px;
+}
+.confirmation{
+    display: flex;
+    flex-direction: column;
+}
+#OK{
+    cursor: pointer;
+    width: 80px;
+    height: 30px;
+    margin-right: 40px;
+    margin-left: 5px;
+    background-color: #adadad;
+    border-style: solid;
+    border-color: #adadad black black #adadad;
+    border-width:2px;
+    font-family: windows95font;
+    text-align: center;
+    font-size: large;
+}
+#OKerror{
+    cursor: pointer;
+    width: 80px;
+    height: 30px;
+    margin-top: -15px;
+    margin-right: 40px;
+    margin-left: 5px;
+    background-color: #adadad;
+    border-style: solid;
+    border-color: #adadad black black #adadad;
+    border-width:2px;
+    font-family: windows95font;
+    text-align: center;
+    font-size: large;
+}
+
+
+#Cancel{
+    cursor: pointer;
+    width: 80px;
+    height: 30px;
+    margin-right: 40px;
+    margin-left: 5px;
+    margin-top: 15px;
+    background-color: #c0c0c0;
+    border-style: solid;
+    border-color: #adadad black black #adadad;
+    border-width:2px;
+    font-family: windows95font;
+    text-align: center;
+    font-size: larger;
+
+}
+#backgroundColor{
+    padding:0%;
+    margin:0%;
+    height: 100%;
+    background-repeat: repeat;
+    background-color: #008c8f;
+}
+
+.error-message{
+    background-color: #c0c0c0;
+    font-family: windows95font;
+    font-size: x-large;
+    z-index:100;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 100;
+    border: 3px solid;
+    border-color: #ffffff #808080 #808080 #ffffff;
+    background-color: #c0c0c0;
+    box-shadow: inset -1px -1px 0 #000000, inset 1px 1px 0 #dfdfdf;
+    padding: 4px;
+}
+.hint-message{
+    background-color: #c0c0c0;
+    font-family: windows95font;
+    font-size: x-large;
+    z-index:100;
+    position: fixed;
+    top: 20%;
+    left: 72%;
+    transform: translate(-50%, -50%);
+    z-index: 100;
+    border: 3px solid;
+    border-color: #ffffff #808080 #808080 #ffffff;
+    background-color: #c0c0c0;
+    box-shadow: inset -1px -1px 0 #000000, inset 1px 1px 0 #dfdfdf;
+    padding: 4px;
+}
+
+  
+  #window27{
+    width: 450px;
+    height: 200px;
+    background-color: silver;
+    font-family: windows95font;
+    font-size: 20px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    overflow: hidden;
+    border: 3px solid;
+    border-color: #ffffff #808080 #808080 #ffffff;
+    background-color: #c0c0c0;
+    box-shadow: inset -1px -1px 0 #000000, inset 1px 1px 0 #dfdfdf;
+    padding: 4px;
+  }
+.error-message{
+    width: 400px;
+    height: 200px;
+}
+
+.hint-message{
+    width: 450px;
+    height: 200px;
+}
+
+.topbar, .topbarHint{
+    background-color:#000080;
+    align-items: center;
+    color: white;
+    display: flex;
+    flex-direction: row;
+    height: 30px;
+    font-size: 20px;
+    letter-spacing: 1.2px;
+}
+#helpLogin{
+    cursor: pointer;
+    width: 24px;
+    height: 24px;
+    font-size: 18px;
+    align-items: center;
+    text-align: center;
+    border-style: solid;
+    border-width: 2px;
+    color: black;
+    border-color: black;
+    background-color: #c0c0c0;
+    position: absolute;
+    right:30px;
+    margin-right: 10px;
+    font-family: windows95font;
+}
+
+#exitLogin{
+    cursor: pointer;
+    width: 24px;
+    height: 24px;
+    font-size: 18px;
+    align-items: center;
+    text-align: center;
+    border-style: solid;
+    border-width: 2px;
+    color: black;
+    border-color: black;
+    background-color: #adadad;
+    position: absolute;
+    right:10px;
+    font-family: windows95font;
+    display: flex;
+    align-items: center;
+}
+.hintContents{
+    display: flex;
+    flex-direction: row;
+    margin-top: 15px;
+}
+.errorContents{
+    display: flex;
+    flex-direction: row;
+    margin-top: 15px;
+}
+.errorMessage, .hintMessage{
+    font-family: windows95font;
+    color: black;
+    font-size: 20px;
+    display: flex;
+    margin-top: 15px;
+    display: flex;
+    flex-direction: column;
+}
+.errorMessage{
+    position: absolute;
+    top: 37%;
+    left: 80%;
+    width: 100%;
+    transform: translate(-50%, -50%);
+}
+.hintMessage{
+    height: 150px;
+}
+.errorMessage2{
+    margin-top: -5%;
+    
+
+}
+.errorIcon, .hintIcon{
+    margin-left: 5%;
+}
+.errorIcon{
+    margin-right: 5px;
+}
+.errorButtonContainer, .hintButtonContainer {
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    margin-top: 20px;
+}
+#OKerror {
+    cursor: pointer;
+    width: 80px;
+    height: 30px;
+    background-color:#adadad;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #adadad black black #adadad;
+    text-align: center;
+    font-family: windows95font;
+    font-size:large;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 120;
+    position: relative;
+    top: -15px;
+}
+
+.OKhint {
+    cursor: pointer;
+    width: 80px;
+    height: 30px;
+    background-color:#adadad;
+    border-style: solid;
+    border-width: 2px;
+    border-color: #adadad black black #adadad;
+    text-align: center;
+    font-family: windows95font;
+    font-size:large;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 120;
+    position: relative;
+    top: -110px;
+}
+
+
+.taskbar{
+    background-color: #c0c0c0;
+    margin:0%;
+    padding:0%;
+    height: 5%;
+    width: 100vw;
+    border-width: 2px;
+    border-color: #adadad black black #adadad;
+    position: fixed;
+    bottom: 0%;
+    border-style: solid;
+    border-color: #d8d8d8;
+    border-width: 2px;
+    justify-content: space-between;
+    overflow: hidden;
+
+}
+
+.taskbar, .clock {
+    display: flex;
+    align-items: center;
+}
+
+.clock{
+    border-style: solid;
+    border-width: 3px;
+    border-color: #adadad black black #adadad;
+    background-color: #b7b7b7;
+    font-family: windows95Font;
+    font-size: 35px;
+    position: absolute;
+    right: 30px;
+    flex-direction: row;
+}

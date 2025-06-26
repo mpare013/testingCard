@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<head>
+    <link rel="stylesheet" href="brickbreaker.css">
+    <title>Brick Breaker</title>
+    <meta name="keywords" content= "HTML, CSS, JavaScript">
+    <meta lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content= "width=device-width, initial-scale=1.0">
+    <meta name="author" content= "Melissa Paredes">
+    <script src="brickbreaker.js"></script>
+    <script src="notepad.js"></script>
+</head>
+<body>
+  <div id="taxInformation" style="display: none;">
+    <div class="windowsPasswordTopBar"><span></span> <img src="icons/confidential.png" width =24px height="24px">Tax Documents
+        <button class="helpPassword" onclick="openHint()">?</button>
+        <button class="exitPassword">X</button>
+    </div>
+        <div class ="passwordContainer">
+            <div class="passwordImage"><img src ="icons/passwordKey.png" width ="70px" height="70px"></div>
+            <div class="middleColumn">
+                <div class="passwordText1">Type a name to identify yourself to Windows. </div>
+                <div class="passwordText2">Enter a password to identify protected files.</div>
+                <div class="userInformation">
+                    <div class="inputContainer"> 
+                        <div class="userLabels">
+                            <div class="usernameLabel">User name:  </div>
+                            <div class="passwordLabel">Password:   </div>
+                        </div>
+                        <div class="userInformationInput">
+                            <input type="text" id="username" class="usernameInputBox">
+                            <input type="password" id="password" class="passwordInputBox">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="confirmation">
+                <button id="OK" onclick="loginTax()"> OK </button>
+                <button id="Cancel" onclick="error()"> Cancel </button>
+            </div>
+    </div>
+</div>
+
+</body>
+</html>
