@@ -28,17 +28,14 @@ function loginTNT() {
         "HELLO PB013, WOULD YOU LIKE TO CONTINUE WITH THIS PROTOCOL?"
     );
 // line by line
-    const virusText = new Array(
-    "ERROR: SYSTEM COMPROMISED. VIRUS FOUND.<br>",
+    const snotText = new Array(
     "ACTION REQUIRED: DELETE ALL SYSTEM FILES.<br>",
     "DELETING FILES: SYSTEM32...<br>",
     "DELETING FILES: USER_DOCUMENTS...<br>",
     "DELETING FILES: TEMPORARY_FILES...<br>",
     "ERROR: SYSTEM FILES CORRUPTED.<br>",
     "CRITICAL ERROR: SYSTEM FAILURE IMMINENT.<br>",
-    "VIRUS ALERT: ALL PERSONAL FILES WILL BE DELETED.<br>",
     "<br>",
-    "WARNING: YOU'VE BEEN INFECTED WITH A MALWARE VIRUS.<br>",
     "DO YOU WANT TO PROCEED WITH DELETING FILES? YES/NO<br>",
     "<br>",
     "ERROR: NO RESPONSE DETECTED. DELETING FILES WITHOUT CONFIRMATION.<br>",
@@ -179,8 +176,8 @@ function loginTNT() {
         // Greeting for when user submits name
         var greeting = "SHUTDOWN PROCEDURE INITIATED BY PB013 INITIATING FILE ERASURE. OVERRIDE ATTEMPT FAILURE. OPERATION IS FINAL.";
 
-        // Add personalized greeting at the beginning of virusText
-        currentArray = [greeting, ...virusText];  // Replace current array with virus text
+        // Add personalized greeting at the beginning of snotText
+        currentArray = [greeting, ...snotText];  // Replace current array with snot text
 
         // Reset typing variables
         iIndex = 0;
@@ -188,11 +185,11 @@ function loginTNT() {
         iArrLength = currentArray[0].length;
         typingActive = true;
 
-        // Clear the screen and start typing virus text instantly (line by line)
+        // Clear the screen and start typing snot text instantly (line by line)
         document.getElementById("typedtext").innerHTML = "";
-        setTimeout(typeVirusText, 1000);
+        setTimeout(typeSnotText, 1000);
     }
-function typeVirusText() {
+function typeSnotText() {
     let sContents = '';
     let iRow = Math.max(0, iIndex - iScrollAt);
     let destination = document.getElementById("typedtext");
@@ -211,7 +208,7 @@ function typeVirusText() {
     iIndex++;
 
     if (iIndex < currentArray.length) {
-        setTimeout(typeVirusText, 300);
+        setTimeout(typeSnotText, 300);
     } else {
         // All lines have been displayed, now play ending sounds
         setTimeout(endingSound, 500); 

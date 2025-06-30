@@ -61,30 +61,30 @@ function bringWindowToFront(windowEl) {
 }
 
 
-//close a specific virus window
-function closeVirus(windowEl) {
+
+function closePops(windowEl) {
     // hide but not get rid of the specific window that the close button was clicked in
     windowEl.style.display = "none";
 }
 
-// open virus windows with draggable functionality
-function openVirus() {
+// open  windows with draggable functionality
+function openPops() {
     const errorSoundPath = 'audio/errorSound.mp3';
     const numberOfPopups = 20;
 
     const maxX = document.documentElement.clientWidth;
     const maxY = document.documentElement.clientHeight;
 
-    const virusWindowTemplate = document.getElementById("window40");
+    const snotWindowTemplate = document.getElementById("window40");
     const inboxIndex = document.getElementById('window2');
     const errorInternetIndex = document.getElementById('window60');
     for (let i = 0; i < numberOfPopups; i++) {
         setTimeout(() => {
-            const newWindow = virusWindowTemplate.cloneNode(true);
+            const newWindow = snotWindowTemplate.cloneNode(true);
 
             newWindow.style.display = "block";
             newWindow.style.position = "absolute"; 
-            newWindow.classList.add('virus-window');
+            newWindow.classList.add('snot-window');
 
             // random position for the new window
             const randomX = Math.random() * (maxX - newWindow.offsetWidth); 
@@ -106,7 +106,7 @@ function openVirus() {
             const closeButton = newWindow.querySelector('.btn'); // Assuming the button has class .btn
             if (closeButton) {
                 closeButton.addEventListener('click', () => {
-                    closeVirus(newWindow); // Close the current window
+                    closePops(newWindow); // Close the current window
                 });
             }
 

@@ -1883,7 +1883,7 @@ button:focus {
     bottom: 60px;
     margin-left: 10px;
 }
-#virusLink, .hyperlink{
+#popLink, .hyperlink{
     color: #0000FF;
     font-family: windows95font;
     border: none;
@@ -1908,7 +1908,7 @@ button:focus {
     transform: translate(-50%, -50%);
 }
 
-#virusBody{
+#pepsiBody{
     background: rgb(0, 0, 0);
     height: fit-content;
     width: fit-content;
