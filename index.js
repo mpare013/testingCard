@@ -72,9 +72,9 @@ function bringToFront(windowEl) {
 const correctUsername = 'strawberry';
 const correctPassword = '2001';
 
-function login() {
-    const username = document.getElementById('username').value;
-    const password = document.getElementById('password').value;
+function go() {
+    const username = document.getElementById('uname').value;
+    const password = document.getElementById('pword').value;
 
     if (username === correctUsername && password === correctPassword) {
         const loginSound = new Audio('audio/winxp.mp3'); 
@@ -200,23 +200,6 @@ function closeTaxDocuments(){
 }
 
 
-
-
-function loginTax() {
-    const usernameTaxUser = document.getElementById('usernameTax').value.toLowerCase().trim();
-    const passwordTaxUser = document.getElementById('passwordTax').value.trim();
-
-    if (usernameTaxUser === correctUsernameTax && passwordTaxUser === correctPasswordTax) {
-        document.getElementById('window13').style.display = 'block';
-        bringWindowToFront("window13")
-        document.getElementById('window11').style.display="none";
-    } else {
-        const errorSound = new Audio('audio/errorSound.mp3');
-        errorSound.play();
-        document.getElementById('window27').style.display = 'block';
-        bringWindowToFront("window27")
-    }
-}
 
 
 function openTaxHint(){
@@ -418,24 +401,24 @@ function handleKeyPress(event) {
         } else if (inputId === "notepad") {
             event.preventDefault();
             saveNote();
-        } else if (inputId === "usernameTax") {
+        } else if (inputId === "uTax") {
             event.preventDefault();
-            loginTax();
-        } else if (inputId === "passwordTax") {
+            goTax();
+        } else if (inputId === "pTax") {
             event.preventDefault();
-            loginTax();
-        } else if (inputId === "usernameTNT") {
-            event.preventDefault();
-            loginTNT();
-        } else if (inputId === "passwordTNT") {
+            goTax();
+        } else if (inputId === "uTNT") {
             event.preventDefault();
             loginTNT();
-        } else if (inputId === "username") {
+        } else if (inputId === "pTNT") {
             event.preventDefault();
-            login();
-        } else if (inputId === "password") {
+            loginTNT();
+        } else if (inputId === "uname") {
             event.preventDefault();
-            login();
+            go();
+        } else if (inputId === "pword") {
+            event.preventDefault();
+            go();
         } else if (inputId ==="searchBox") {
             event.preventDefault();
             openInternetError();

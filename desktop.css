@@ -309,12 +309,12 @@ input {border:0; outline:none; }
     margin-left: 40px;
 }
 
-.passwordText1, .passwordText2, .answer{
+.pText1, .pText2, .answer{
     font-family: windows95font;
     color: black;
     font-size:larger;
 }
-.passwordText2{
+.pText2{
     margin-top: 25px;
 }
 .inputContainer{
@@ -331,7 +331,7 @@ input {border:0; outline:none; }
     flex-direction: column;
     margin-top: 23px;
 }
-.usernameInputBox{
+.umockField{
     cursor: text;
     width: 225px;
     height: 30px;
@@ -342,7 +342,7 @@ input {border:0; outline:none; }
     font-family: windows95font;
     font-size: larger;
 }
-.passwordInputBox{
+.pmockField{
     cursor: text;
     width: 225px;
     height: 30px;
@@ -988,12 +988,12 @@ textarea {
     margin-left: 40px;
   }
   
-  .passwordText1, .passwordText2, .userInformation{
+  .pText1, .pText2, .userInformation{
     font-family: windows95font;
     color: black;
     font-size:20px;
   }
-  .passwordText2{
+  .pText2{
     margin-top: 25px;
   }
   .inputContainer{
@@ -1012,7 +1012,7 @@ textarea {
     flex-direction: column;
     margin-top: 20px;
   }
-  .userlabels{
+  .ulabels{
     margin-top: 20px;
   }
   .confirmation{
@@ -1166,7 +1166,9 @@ textarea {
     margin-top:5%;
     justify-content: center;
 }
-
+.pLabel{
+    margin-top: 20px;
+}
 .errorMessage{
     font-family: windows95font;
     color: black;

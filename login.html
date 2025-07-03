@@ -24,19 +24,19 @@
                             
                     <div class="userInformation">
                         <div class="inputContainer"> 
-                            <div class="userLabels">
-                                <div class="usernameLabel"><u>U</u>ser name:  </div>
-                                <div class="passwordLabel"><u>P</u>assword:   </div>
+                            <div class="uLabels">
+                                <div class="uLabel"><u>U</u>ser name:  </div>
+                                <div class="pLabel"><u>P</u>assword:   </div>
                             </div>
                             <div class="userInformationInput">
-                                <input type="text" id="username" class="usernameInputBox" autocomplete="off" onkeydown="handleKeyPress(event)">
-                                <input type="text" id="password" class="passwordInputBox" autocomplete="off" onkeydown="handleKeyPress(event)">
+                                <input type="text" id="uname" class="usernameInputBox" autocomplete="off" onkeydown="handleKeyPress(event)">
+                                <input type="text" id="pword" class="passwordInputBox" autocomplete="off" onkeydown="handleKeyPress(event)">
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="confirmation">
-                    <button id="OK" onclick="login()"> OK </button>
+                    <button id="OK" onclick="go()"> OK </button>
                     <button id="Cancel"> Cancel </button>
                 </div>
         </div>
@@ -64,7 +64,7 @@
     </div>
 
     <div id="hint-message" class="hint-message" style="display: none;">
-        <div class="window-top"><img src="https://images2.imgbox.com/62/28/eU9tycC9_o.png" width ="32px" height="24px"><div style="position: absolute; left: 40px; font-size: 20px;">Invalid Credentials</div>
+        <div class="window-top"><img src="https://images2.imgbox.com/62/28/eU9tycC9_o.png" width ="32px" height="24px"><div style="position: absolute; left: 40px; font-size: 20px;">Hint</div>
             <button class="btn" onclick="closeHint()">X</button>
         </div>
         <div class="hintContents">

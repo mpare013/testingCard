@@ -197,6 +197,7 @@ span{
     display: flex;
     flex-direction: column;
 }
+
 #OK{
     cursor: pointer;
     width: 80px;
@@ -211,6 +212,11 @@ span{
     text-align: center;
     font-size: large;
 }
+
+.pLabel{
+    margin-top: 20px;
+}
+
 #OKerror{
     cursor: pointer;
     width: 80px;

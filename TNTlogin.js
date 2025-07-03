@@ -1,14 +1,14 @@
 // Declare loggedIn properly
 let loggedIn = false;
-const correctUsernameTNT = 'dietpepsi';
-const correctPasswordTNT = 'lunchbox';
+const correctUTNT = 'dietpepsi';
+const correctPTNT = 'lunchbox';
 
 function loginTNT() {
-    const usernameTNT = document.getElementById('usernameTNT').value;
-    const passwordTNT = document.getElementById('passwordTNT').value;
+    const uTNT = document.getElementById('uTNT').value;
+    const pTNT = document.getElementById('pTNT').value;
 
  
-    if (usernameTNT === correctUsernameTNT && passwordTNT === correctPasswordTNT) {
+    if (uTNT === correctUTNT && pTNT === correctPTNT) {
 
         document.getElementById('endBlock').style.display = "block";
         document.getElementById('window18').style.display= "none";

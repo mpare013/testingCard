@@ -197,10 +197,6 @@
                 <img src="https://images2.imgbox.com/eb/62/Cl9xoOut_o.png" width="80px" height="80px">
                 <div class="text"> MS-DOS <br> Prompt </div> 
             </button>
-            <button class="item" onclick="openPepsiJoke()">
-                <img src="https://images2.imgbox.com/35/4a/8pmwAZV5_o.png" width="80px" height="80px">
-                <div class="text"> Pepsi </div> 
-            </button>
         </div>
     
         <div class="leftContainerColumn">
@@ -215,6 +211,10 @@
             <button class="item" onclick="openSettings()">
                 <img src="https://images2.imgbox.com/7c/0c/4ZvjsVYa_o.png" width="80px" height="80px">
                 <div class="text"> System <br> Settings </div>
+            </button>
+            <button class="item" onclick="openPepsiJoke()">
+                <img src="https://images2.imgbox.com/35/4a/8pmwAZV5_o.png" width="80px" height="80px">
+                <div class="text"> Pepsi </div> 
             </button>
         </div>
         <!-- pepsi login -->
@@ -231,14 +231,14 @@
             <div class ="pepsiContainer">
                 <div class="pepsiImage"><img src ="https://images2.imgbox.com/35/4a/8pmwAZV5_o.png" width ="80px" height="80px"></div>
                 <div class="middleColumn">
-                    <div class="passwordText1">What’s Pepsi’s favorite type of music?</div>
+                    <div class="pText1">What’s Pepsi’s favorite type of music?</div>
                     <div class="answer">
                         <div class="inputContainer"> 
                             <div class="jokeLabels">
                                 <div class="answerLabel"><u>A</u>nswer:  </div>
                             </div>
                             <div class="userInformationInputPepsi">
-                                <input type="text" id="pepsiUserAnswer" class="usernameInputBox" autocomplete="off" onkeydown="handleKeyPress(event)">
+                                <input type="text" id="pepsiUserAnswer" class="umockField" autocomplete="off" onkeydown="handleKeyPress(event)">
                             </div>
                         </div>
                     </div>
@@ -673,23 +673,23 @@
             <div class ="passwordContainer">
                 <div class="passwordImage"><img src ="https://images2.imgbox.com/59/77/T7y2Jmy2_o.png" width ="80px" height="80px"></div>
                 <div class="middleColumn">
-                    <div class="passwordText1">Type a name to identify yourself to Windows. </div>
-                    <div class="passwordText2">This content is restricted. Enter your password to proceed.</div>
+                    <div class="pText1">Type a name to identify yourself to Windows. </div>
+                    <div class="pText2">This content is restricted. Enter your password to proceed.</div>
                     <div class="userInformation">
                         <div class="inputContainer"> 
-                            <div class="userLabels">
+                            <div class="uLabels">
                                 <div class="usernameLabel"><u>U</u>ser name:  </div>
                                 <div class="passwordLabel"><u>P</u>assword:   </div>
                             </div>
                             <div class="userInformationInput">
-                                <input type="text" id="usernameTNT" class="usernameInputBox" onkeydown="handleKeyPress(event)" autocomplete="off">
-                                <input type="text" id="passwordTNT" class="passwordInputBox" onkeydown="handleKeyPress(event)" autocomplete="off">
+                                <input type="text" id="uTNT" class="umockField" onkeydown="handleKeyPress(event)" autocomplete="off">
+                                <input type="text" id="pTNT" class="pmockField" onkeydown="handleKeyPress(event)" autocomplete="off">
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="confirmation">
-                    <button id="OK" onclick="loginTNT()"> OK </button>
+                    <button id="OK" onclick="goTNT()"> OK </button>
                     <button id="Cancel" onclick="closeTNT()"> Cancel </button>
                 </div>
         </div>
@@ -714,23 +714,23 @@
             <div class ="passwordContainer">
                 <div class="passwordImage"><img src ="https://images2.imgbox.com/59/77/T7y2Jmy2_o.png" width ="80px" height="80px"></div>
                 <div class="middleColumn">
-                    <div class="passwordText1">Type a name to identify yourself to Windows. </div>
-                    <div class="passwordText2">Enter your password to access protected tax information.</div>
+                    <div class="pText1">Type a name to identify yourself to Windows. </div>
+                    <div class="pText2">Enter your password to access protected tax information.</div>
                     <div class="userInformation">
                         <div class="inputContainer"> 
-                            <div class="userLabels">
-                                <div class="usernameLabel"><u>U</u>ser name:  </div>
-                                <div class="passwordLabel"><u>P</u>assword:   </div>
+                            <div class="uLabels">
+                                <div class="uLabel"><u>U</u>ser name:  </div>
+                                <div class="pLabel"><u>P</u>assword:   </div>
                             </div>
                             <div class="userInformationInput">
-                                <input type="text" id="usernameTax" class="usernameInputBox" onkeydown="handleKeyPress(event)" autocomplete="off">
-                                <input type="text" id="passwordTax" class="passwordInputBox" onkeydown="handleKeyPress(event)" autocomplete="off">
+                                <input type="text" id="uTax" class="umockField" onkeydown="handleKeyPress(event)" autocomplete="off">
+                                <input type="text" id="pTax" class="pmockField" onkeydown="handleKeyPress(event)" autocomplete="off">
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="confirmation">
-                    <button id="OK" onclick="loginTax()"> OK </button>
+                    <button id="OK" onclick="goTax()"> OK </button>
                     <button id="Cancel" onclick="closeTaxDocuments()"> Cancel </button>
                 </div>
         </div>
@@ -1562,8 +1562,8 @@ Huk dolu vaolyz svvr ihjr, aolf dpss zll aoha pa dhz fvby jhst wlyzpzalujl aoha 
             <div class="google"><img src="https://images2.imgbox.com/46/2d/RvN8n9Ws_o.png" width="625px" height="225px"></div>
             <div id="searchBar" class="searchBar"><input id="searchBox" onkeydown="handleKeyPress(event)" autocomplete="off"></div>
             <div class="googleButtons">
-                <button id="internetError" class="search" onclick="openInternetError()">Google Search</button>
-                <button id="TNTPassword"class="search" onclick="openMorseNote()">I'm Feeling Lucky</button>
+                <button id="internetErrorButton" class="search" onclick="openInternetError()">Google Search</button>
+                <button id="tntButton" class="search" onclick="openMorseNote()">I'm Feeling Lucky</button>
             </div>
         </div>
     </div>

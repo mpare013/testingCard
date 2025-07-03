@@ -1,11 +1,11 @@
-const correctUsernameTax = 'chroma';
-const correctPasswordTax = '#8A9A5B';
+const correctUTax = 'chroma';
+const correctPTax = '#8A9A5B';
 // chroma #8A9A5B
-function loginTax() {
-    const usernameTaxUser = document.getElementById('usernameTax').value.toLowerCase().trim();
-    const passwordTaxUser = document.getElementById('passwordTax').value.trim();
+function goTax() {
+    const uTaxUser = document.getElementById('uTax').value.toLowerCase().trim();
+    const pTaxUser = document.getElementById('pTax').value.trim();
 
-    if (usernameTaxUser === correctUsernameTax && passwordTaxUser === correctPasswordTax) {
+    if (uTaxUser === correctUTax && pTaxUser === correctPTax) {
         document.getElementById('window13').style.display = "block";
         document.getElementById('window11').style.display= "none";
 
