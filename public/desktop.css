@@ -438,9 +438,8 @@ input {border:0; outline:none; }
 }
 #window12{
     position: fixed;
-    top: 40%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    top: 10%;
+    right: 5%;
     width: 385px;
     height: 235px;
     background-color:#c0c0c0;
@@ -2018,12 +2017,14 @@ button:focus {
       z-index: 219203829;
     }
 
-    .confetti {
-      position: absolute;
-      width: 10px;
-      height: 20px;
-    }
 
+  .confetti {
+    position: absolute;
+    background-color: #ff0;
+    border-radius: 50%;
+    opacity: 1;
+    pointer-events: none;
+  }
   .tabs {
     display: flex;
     margin-top: 10px;

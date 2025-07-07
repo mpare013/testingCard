@@ -599,7 +599,7 @@
     </div>
 
     <!-- music player -->
-    <div id="window12" class="window" style="display: none;">
+    <div id="window12" class="window" style="display: block;">
         <div class="window-top">
             <div class="title">
                 <img src="https://images2.imgbox.com/2b/fe/v9PkUf0d_o.png" width="24px" height="24px" > WinPlay3 
@@ -608,7 +608,7 @@
                 <button class="btn" onclick="closeMusicPlayer()">X</button>
             </div>
         </div>
-        
+
         <div class="screenContainer">
             <div class="displayScreen">
                 <div class="trackContainer">
@@ -640,15 +640,15 @@
             <div id="stop" onclick="stopSong()">
                 <img src="https://images2.imgbox.com/c2/52/GWQcTAsM_o.png" width="12px" height="12px">
             </div>
-            <div class="previous" onclick="previousTrack()">
+            <div class="previous" onclick="previousSong()">
                 <img src="https://images2.imgbox.com/45/53/p25Bf8B3_o.png" width="16px" height="16px">
             </div>
-            <div class="next" onclick="nextTrack()">
+            <div class="next" onclick="nextSong()">
                 <img src="https://images2.imgbox.com/3a/fa/STAkjL4w_o.png" width="16px" height="16px">
             </div>
         </div>
     </div>
-    
+    <audio id="musicPlayerSong" preload="auto"></audio>
 
     <div class="rightIconContainer">
     <div class ="funGames">
@@ -1284,7 +1284,7 @@ End memo.
 </script>
 
 
-<div id="window17" class="window" style="display:none;">
+<div id="window17" class="window" style="display:block;">
     <div class="window-top">
         <div class="title">
             Letter
