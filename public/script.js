@@ -142,7 +142,7 @@ function loginPepsi() {
 function openMusicPlayer() {
     document.getElementById("window6").style.display = "none";
     document.getElementById("window12").style.display = "block";
-        bringWindowToFront(window12);
+    bringWindowToFront(window12);
 }
 function closeMusicPlayer(){
     document.getElementById("window12").style.display ="none";

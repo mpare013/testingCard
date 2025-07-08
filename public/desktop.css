@@ -438,8 +438,8 @@ input {border:0; outline:none; }
 }
 #window12{
     position: fixed;
-    top: 10%;
-    right: 5%;
+    top: 8%;
+    right: 4%;
     width: 385px;
     height: 235px;
     background-color:#c0c0c0;
@@ -452,7 +452,24 @@ input {border:0; outline:none; }
     width: 680px;
     height: 300px;
 }
+@keyframes explode {
+  0% {
+    transform: translate(0, 0) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(var(--x), var(--y)) rotate(var(--rotation)) scale(var(--scale));
+    opacity: 0;
+  }
+}
 
+.confetti {
+  position: absolute;
+  background-color: hsl(0, 100%, 50%);
+  border-radius: 50%;
+  opacity: 0;
+  animation: explode 6s forwards;
+}
 .topbar, .topbarHint{
     background-color:#000080;
     align-items: center;
@@ -541,7 +558,8 @@ input {border:0; outline:none; }
     color: #00ff33;
     font-family: windows95font;
     font-size: large;
-    text-align:left;
+    text-align:right;
+    margin-right: 4px;
 }
 .displayScreen{
     display: flex;
@@ -2018,13 +2036,7 @@ button:focus {
     }
 
 
-  .confetti {
-    position: absolute;
-    background-color: #ff0;
-    border-radius: 50%;
-    opacity: 1;
-    pointer-events: none;
-  }
+
   .tabs {
     display: flex;
     margin-top: 10px;

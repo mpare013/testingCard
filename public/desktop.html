@@ -617,7 +617,7 @@
                 </div>
                 <div class="minuteContainer">
                     <div class="minutePlayerText">MIN</div>
-                    <div id="minuteNumber">0:</div>
+                    <div id="minuteNumber">00:</div>
                 </div>
                 <div class="secondContainer">
                     <div class="secondPlayerText"> SEC </div>
@@ -1226,12 +1226,9 @@ End memo.
 </div>
 
 <!-- confetti -->
-<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/Physics2DPlugin.min.js"></script>
 
 <script>
-  // Register plugin (CDN version exposes it globally)
-  gsap.registerPlugin(Physics2DPlugin);
+  // Register the Physics2DPlugin after loading GSAP and the plugin
 
   function confettiSound() {
     const confettiSound = new Audio("audio/fireworks_pang01.mp3");
@@ -1240,49 +1237,77 @@ End memo.
     kazoo.play();
   }
 
+
+
+ 
   function openConfetti() {
-    document.getElementById("window80").style.display = "block";
-    window80.style.zIndex = getMaxZIndex() + 1;
-    const emitter = document.getElementById("emitter");
+    const catWindow = document.getElementById("window80");
+    catWindow.style.display = "block";
+    bringWindowToFront(catWindow);
 
-    for (let i = 0; i < 300; i++) {
-      const piece = document.createElement("div");
-      piece.className = "confetti";
-      emitter.appendChild(piece);
+  const emitter = document.getElementById("emitter");
 
-      const size = Math.random() * 10 + 5;
-      const startX = window.innerWidth / 2 + (Math.random() - 0.5) * 200;
-      const startY = window.innerHeight / 2 + (Math.random() - 0.5) * 100;
+  // Generate 300 pieces of confetti
+  for (let i = 0; i < 300; i++) {
+    const piece = document.createElement("div");
+    piece.classList.add("confetti");
+    emitter.appendChild(piece);
 
-      gsap.set(piece, {
-        x: startX,
-        y: startY,
-        width: size,
-        height: size * 1.5,
-        backgroundColor: `hsl(${Math.random() * 360}, 100%, 50%)`,
-        borderRadius: Math.random() < 0.5 ? "50%" : "0%",
-        opacity: Math.random() * 0.5 + 0.5,
-        rotation: Math.random() * 360,
-        scale: Math.random() * 0.5 + 0.75,
-      });
+    // Set random properties for each confetti piece
+    const size = Math.random() * 10 + 5;  // Random size between 5 and 15px
+    const color = Math.random() * 360;   // Random color hue (360 degrees)
+    const startX = 0;                    // Start position (centered for explosion)
+    const startY = 0;
 
-      gsap.to(piece, {
-        duration: 3 + Math.random() * 1.5,
-        delay: Math.random() * 0.3,
-        physics2D: {
-          velocity: Math.random() * 600 + 100,
-          angle: Math.random() * 360,
-          gravity: 200,
-        },
-        rotation: "+=" + Math.random() * 720,
-        onComplete: () => piece.remove(),
-      });
-    }
+
+    const rotation = Math.random() * 360;
+
+
+    const scale = Math.random() * 0.5 + 0.75; // Random size between 0.75 and 1.25
+
+    const xDirection = (Math.random() - 0.5) * 600; // Spread the explosion horizontally
+    const yDirection = (Math.random() - 0.5) * 600; // Spread the explosion vertically
+
+
+    piece.style.setProperty("--x", `${xDirection}px`);
+    piece.style.setProperty("--y", `${yDirection}px`);
+    piece.style.setProperty("--rotation", `${rotation}deg`);
+    piece.style.setProperty("--scale", scale);
+    piece.style.setProperty("--hue", color);
+
+  
+    piece.style.animationDelay = `${Math.random() * 0.5}s`;
+
+
+    piece.style.transform = `translate(${startX}px, ${startY}px) rotate(${rotation}deg)`;
+    piece.style.opacity = 0;
+
+    setTimeout(() => {
+      piece.style.opacity = 1;
+      piece.style.transition = 'transform 1s ease-out, opacity 1s ease-out';
+      piece.style.transform = `translate(${xDirection}px, ${yDirection}px) rotate(${rotation}deg)`;
+    }, 100);
   }
-
+}
   openConfetti();
 </script>
 
+<!-- bday cat window -->
+<div id="window80" class="window" style="display:none;">
+    <div class="window-top">
+    <div class="title"></div>
+    <span></span>
+      <div class="window-buttons">
+        <button class="btn">X</button>
+      </div>
+    </div>
+
+    <div id="pepsiBody">
+        <div class="puppyImage"> <img src="https://images2.imgbox.com/f2/37/Uji4Nq6G_o.jpg" width="420px" height="430px">
+            <br>
+        </div>
+    </div>
+</div>
 
 <div id="window17" class="window" style="display:block;">
     <div class="window-top">
@@ -1300,25 +1325,25 @@ End memo.
             <span><u>H</u>elp</span>
     </div>
     <div class="notepad-bin-body">
-        Happy anniversary!!!<br>
+        So… it’s our anniversary. We've been together for so long but I still get so excited to celebrate with you.<br><br>
 
         I hope our anniversary feels like 
         <button id ="bdayLink" onclick ="openConfetti(), confettiSound()">
             <br>
             <u>this</u>
-        </button>— bursting with color, excitement, and everything that makes life feel a little more alive.
+        </button>. 
+        <br>
+        Bursting with color, excitement, and everything that makes life feel a little more alive.
         <br>
 
-So… it’s our anniversary. That magical day when we decided, “Yep, I’m sticking with this lovable weirdo.” And here we are — still going strong, still laughing, still stealing each other’s snacks.<br><br>
+I just want to say: being with you is honestly the best decision I’ve ever made. You make life more fun, feel more full, and exciting. Whether we’re going on little adventures or doing absolutely nothing, it’s better because it’s with you.<br><br>
 
-I just want to say: being with you is honestly the best decision I’ve ever made. You make life more fun, more full, and way less boring. Whether we’re going on little adventures or doing absolutely nothing, it’s better because it’s with you.<br><br>
+You drive me a little crazy sometimes, but I love it.<br><br>
 
-You drive me a little crazy sometimes (don’t worry, in the cute way), but I wouldn’t change a single thing about us. Okay, maybe just your habit of leaving socks everywhere — but even that’s kind of endearing now.<br><br>
-
-Thank you for being my partner in crime, my best friend, and the person I'm so excited to come home to in the future. Here’s to more laughs, more cuddles, and maybe finally picking a Netflix show we can actually finish.<br><br>
+Thank you for being my boyfriend, my best friend, and the person I'm so excited to come home to everyday. Here’s to more laughs, more cuddles, and maybe finally picking a Netflix show we can actually finish.<br><br>
 
 I love you like crazy. Happy anniversary!<br>
-    </div>
+</div>
 <div class="status-bar">
     <span>1 item(s)</span>
     <span>Windows95</span>
@@ -1331,22 +1356,6 @@ I love you like crazy. Happy anniversary!<br>
     </script>
 </div>
 
-<!-- bday cat window -->
-<div id="window80" class="window" style="display:none;">
-    <div class="window-top">
-    <div class="title"></div>
-    <span></span>
-      <div class="window-buttons">
-        <button class="btn" onclick="closebdaypic()">X</button>
-      </div>
-    </div>
-
-    <div id="pepsiBody">
-        <div class="puppyImage"> <img src="https://images2.imgbox.com/f2/37/Uji4Nq6G_o.jpg" width="420px" height="430px">
-            <br>
-        </div>
-            </div>
-        </div>
 
 <!-- dog poker -->
 <div id="window81" class="window" style="display:none;">
