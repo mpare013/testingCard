@@ -23,7 +23,10 @@
         </button>
         <div class="clock" id="clock"></div>
     </div>
-
+    <button class="item" id="pepsiIcon" onclick="openPepsiJoke()">
+        <img src="https://images2.imgbox.com/35/4a/8pmwAZV5_o.png" width="80px" height="80px">
+        <div class="text"> Pepsi </div> 
+    </button>
 <!--wish-window-->
 <div id="wish-window-container">
     <div id="wish-window" style="display:block; overflow: hidden;">
@@ -214,11 +217,8 @@
                 <img src="https://images2.imgbox.com/7c/0c/4ZvjsVYa_o.png" width="80px" height="80px">
                 <div class="text"> System <br> Settings </div>
             </button>
-            <button class="item" onclick="openPepsiJoke()">
-                <img src="https://images2.imgbox.com/35/4a/8pmwAZV5_o.png" width="80px" height="80px">
-                <div class="text"> Pepsi </div> 
-            </button>
         </div>
+
         <!-- pepsi login -->
     <div id="window6" class="window" style="display:none;">
         <div class="window-top">
@@ -1250,7 +1250,7 @@ End memo.
   confetti({
     particleCount: 2000,
     spread: 100000,
-    origin: { y: 1.0 }
+    origin: { x: 1, y: 1.0 },
   });
   openConfetti();
 });
@@ -1293,20 +1293,21 @@ End memo.
 
         I hope our anniversary feels like 
         <button id ="bdayLink" onclick ="openConfetti(), confettiSound()">
-            <br>
             <u>this</u>
-        </button>. 
+        </button>.
+        <br>
         <br>
         Bursting with color, excitement, and everything that makes life feel a little more alive.
         <br>
 
-I just want to say: being with you is honestly the best decision I’ve ever made. You make life more fun, feel more full, and exciting. Whether we’re going on little adventures or doing absolutely nothing, it’s better because it’s with you.<br><br>
+I just want to say: being with you is honestly the best decision I’ve ever made. You make life more fun, feel more full, and exciting. Whether we’re going on little adventures or doing absolutely nothing, it’s always better because it’s with you.<br><br>
 
-You drive me a little crazy sometimes, but I love it.<br><br>
+You’ve become such a constant in my life. Someone I trust, laugh with, and genuinely enjoy being around. You challenge me, you support me, and yeah, you drive me a little crazy sometimes… but honestly, I wouldn’t want it any other way.<br>
+<br>
 
-Thank you for being my boyfriend, my best friend, and the person I'm so excited to come home to everyday. Here’s to more laughs, more cuddles, and maybe finally picking a Netflix show we can actually finish.<br><br>
+Thank you for being my boyfriend, my best friend, and the person I'm so excited to come home to everyday. Here’s to more fishing, more cuddles, and watching more movies.<br><br>
 
-I love you like crazy. Happy anniversary!<br>
+Happy anniversary, and here's to many more! <br>
 </div>
 <div class="status-bar">
     <span>1 item(s)</span>
@@ -1886,6 +1887,7 @@ But if the past has taught us anything, it’s that no code is unbreakable—esp
         <button id="OK" onclick="closeHowtoplay()">OK</button>
     </div>
 </div>
+
 <!-- doge window -->
 <div id="window40" class="window" style="display:none; z-index: 100000;">
     <div class="window-top">
