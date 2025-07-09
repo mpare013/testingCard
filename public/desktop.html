@@ -11,6 +11,7 @@
     <script src="musicPlayer.js"></script>
     <script src="index.js"></script>
     <script src="script.js"></script>
+    <link rel="icon" type="image/png" href="icons/documents.png">
 </head>
 <body>
 
@@ -109,7 +110,7 @@
         </div>
     </div>
     <!-- Start Menu -->
-    <div id="startMenuContainer" style="display:none;">
+    <div id="startMenuContainer" class="window" style="display:none;">
         <div id="startMenu">
             <!-- Programs Section -->
             <div class="onHoverProgramsContainer">
@@ -684,7 +685,7 @@
                             </div>
                             <div class="userInformationInput">
                                 <input type="text" id="uTNT" class="umockField" onkeydown="handleKeyPress(event)" autocomplete="off">
-                                <input type="text" id="pTNT" class="pmockField" onkeydown="handleKeyPress(event)" autocomplete="off">
+                                <input type="password" id="pTNT" class="pmockField" onkeydown="handleKeyPress(event)" autocomplete="off">
                             </div>
                         </div>
                     </div>
@@ -725,7 +726,7 @@
                             </div>
                             <div class="userInformationInput">
                                 <input type="text" id="uTax" class="umockField" onkeydown="handleKeyPress(event)" autocomplete="off">
-                                <input type="text" id="pTax" class="pmockField" onkeydown="handleKeyPress(event)" autocomplete="off">
+                                <input type="password" id="pTax" class="pmockField" onkeydown="handleKeyPress(event)" autocomplete="off">
                             </div>
                         </div>
                     </div>
@@ -1226,10 +1227,9 @@ End memo.
 </div>
 
 <!-- confetti -->
+<script type="module">
 
-<script>
-  // Register the Physics2DPlugin after loading GSAP and the plugin
-
+ import confetti from 'https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.module.mjs';
   function confettiSound() {
     const confettiSound = new Audio("audio/fireworks_pang01.mp3");
     const kazoo = new Audio("audio/confetti-pop-sound.mp3");
@@ -1238,58 +1238,22 @@ End memo.
   }
 
 
-
- 
   function openConfetti() {
+    
     const catWindow = document.getElementById("window80");
     catWindow.style.display = "block";
     bringWindowToFront(catWindow);
-
-  const emitter = document.getElementById("emitter");
-
-  // Generate 300 pieces of confetti
-  for (let i = 0; i < 300; i++) {
-    const piece = document.createElement("div");
-    piece.classList.add("confetti");
-    emitter.appendChild(piece);
-
-    // Set random properties for each confetti piece
-    const size = Math.random() * 10 + 5;  // Random size between 5 and 15px
-    const color = Math.random() * 360;   // Random color hue (360 degrees)
-    const startX = 0;                    // Start position (centered for explosion)
-    const startY = 0;
-
-
-    const rotation = Math.random() * 360;
-
-
-    const scale = Math.random() * 0.5 + 0.75; // Random size between 0.75 and 1.25
-
-    const xDirection = (Math.random() - 0.5) * 600; // Spread the explosion horizontally
-    const yDirection = (Math.random() - 0.5) * 600; // Spread the explosion vertically
-
-
-    piece.style.setProperty("--x", `${xDirection}px`);
-    piece.style.setProperty("--y", `${yDirection}px`);
-    piece.style.setProperty("--rotation", `${rotation}deg`);
-    piece.style.setProperty("--scale", scale);
-    piece.style.setProperty("--hue", color);
-
-  
-    piece.style.animationDelay = `${Math.random() * 0.5}s`;
-
-
-    piece.style.transform = `translate(${startX}px, ${startY}px) rotate(${rotation}deg)`;
-    piece.style.opacity = 0;
-
-    setTimeout(() => {
-      piece.style.opacity = 1;
-      piece.style.transition = 'transform 1s ease-out, opacity 1s ease-out';
-      piece.style.transform = `translate(${xDirection}px, ${yDirection}px) rotate(${rotation}deg)`;
-    }, 100);
+    confetti();
+    confettiSound();
   }
-}
+    document.getElementById('bdayLink').addEventListener('click', () => {
+  confetti({
+    particleCount: 2000,
+    spread: 100000,
+    origin: { y: 1.0 }
+  });
   openConfetti();
+});
 </script>
 
 <!-- bday cat window -->
@@ -1350,7 +1314,6 @@ I love you like crazy. Happy anniversary!<br>
 </div>
 </div>
 <!-- confetti -->
-<div id="emitter">
     <script>
         
     </script>

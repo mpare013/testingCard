@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     setInterval(updateClock, 1000)
     updateClock();
-});// Open and close Start Menu
+});// Open and close start menu
 const startBtn = document.getElementById('start');
 const startMenuContainer = document.getElementById('startMenuContainer');
 function loginStart() {
@@ -30,7 +30,8 @@ function openStartMenu() {
     if (startMenuContainer.style.display === 'block') {
         startMenuContainer.style.display = 'none'; // Close the menu
     } else {
-        startMenuContainer.style.display = 'block'; // Open the menu
+        startMenuContainer.style.display = 'block';
+        bringWindowToFront(startMenuContainer); // Open the menu
     }
 }
 function getMaxZIndex() {
@@ -105,22 +106,19 @@ function error() {
 }
 
 function closeWelcomeMessage(){
-    document.getElementById('welcome-message').style.display = "none"
+    const welcomeMessage = document.getElementById('welcome-message');
+    welcomeMessage.style.display = "none";
 }
-function closeError(){
-    document.getElementById("window27").style.display ="none";
-}
+
 
 function mouseClick(){
     const clickSound = new Audio("audio/click.mp3");
     clickSound.play();
 }
 function openPepsiJoke(){
-    document.getElementById("window6").style.display ="block";
-    bringWindowToFront(window6);
-}
-function closePepsiJoke(){
-    document.getElementById("window6").style.display ="none";
+    const pepsi = document.getElementById("window6")
+    pepsi.style.display = "block";
+    bringWindowToFront(pepsi);
 }
 
 const pepsiCorrectAnswer = 'pop';
@@ -139,13 +137,8 @@ function loginPepsi() {
     }
 }
 
-function openMusicPlayer() {
-    document.getElementById("window6").style.display = "none";
-    document.getElementById("window12").style.display = "block";
-    bringWindowToFront(window12);
-}
 function closeMusicPlayer(){
-    document.getElementById("window12").style.display ="none";
+    musicPlayer.style.display ="none";
     musicPlayerSong.pause();   
 }
 

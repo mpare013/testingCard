@@ -4,15 +4,19 @@ const correctUTNT = 'dietpepsi';
 const correctPTNT = 'lunchbox';
 
 function loginTNT() {
+
     const uTNT = document.getElementById('uTNT').value;
     const pTNT = document.getElementById('pTNT').value;
 
  
     if (uTNT === correctUTNT && pTNT === correctPTNT) {
 
-        document.getElementById('endBlock').style.display = "block";
+        const endingScene = document.getElementById('endBlock');
+        endingScene.style.display = "block";
+        bringWindowToFront(endingScene);
         document.getElementById('window18').style.display= "none";
         loggedIn = true;
+        musicPlayerSong.pause();
         typewriter();
     } else {
         const errorSound = new Audio('audio/errorSound.mp3');
@@ -36,22 +40,7 @@ function loginTNT() {
     "ERROR: SYSTEM FILES CORRUPTED.<br>",
     "CRITICAL ERROR: SYSTEM FAILURE IMMINENT.<br>",
     "<br>",
-    "DO YOU WANT TO PROCEED WITH DELETING FILES? YES/NO<br>",
-    "<br>",
-    "ERROR: NO RESPONSE DETECTED. DELETING FILES WITHOUT CONFIRMATION.<br>",
-    "DELETION IN PROGRESS...<br>",
-    "DELETING FILES: WINDOWS_ESSENTIALS...",
-    "DELETING FILES: USER_PROFILE...",
-    "WARNING: DELETE OPERATION MAY TAKE UP TO 10 MINUTES.<br>",
     
-    "WARNING: THIS ACTION IS IRREVERSIBLE.<br>",
-    "ALL BACKUP FILES DELETED.<br>",
-    "DELETION COMMAND INITIATED.<br>",
-    "ERROR: DELETE OPERATION FAILED.<br>",
-    "ATTEMPTING TO FORCE DELETE FILES...<br>",
-    "DELETING: ADMINISTRATIVE BACKUPS...<br>",
-    "ERROR: SYSTEM FILES UNABLE TO BE DELETED.<br>",
-    "<br>",
     "USER DATA DESTRUCTION IN PROGRESS.<br>",
     "WARNING: SYSTEM WILL TERMINATE.<br>",
     "FORCING SHUTDOWN IN 10 SECONDS.<br>",
@@ -60,43 +49,11 @@ function loginTNT() {
     "ERROR: SYSTEM LOGS CANNOT BE DELETED.<br>",
     "<br>",
 
-    "<br>",
-    "ERROR: SYSTEM COMPROMISED BEYOND REPAIR.<br>",
-    "ALL AVAILABLE SYSTEM RESOURCES EXHAUSTED.<br>",
-    "ATTEMPTING TO CORRUPT BACKUP FILES...<br>",
-    "ERROR: FILE SYSTEM DAMAGE EXCESSIVE.<br>",
-    "ATTEMPTING TO FORCE SHUTDOWN...<br>",
-    "SYSTEM WILL RESTART IN 5 SECONDS.<br>",
-    "<br>",
-    "ERROR: UNSUCCESSFUL SYSTEM RECOVERY ATTEMPT.<br>",
-    "ALL SYSTEM FILES PERMANENTLY CORRUPTED.<br>",
-    "RECOVERY PROCEDURE INACTIVE.<br>",
-    "SYSTEM RESTART INITIATED.<br>",
-    "WARNING: SYSTEM WILL RESTART.<br>",
-    "USER FILES PERMANENTLY LOST.<br>",
-
     "WARNING: TEMPERATURE TOO HIGH. SHUTTING DOWN SYSTEM.<br>",
     "ERROR: CPU OVERHEATING. SYSTEM WILL TERMINATE.<br>",
     "SYSTEM ERROR: TEMPERATURE EXCEEDS SAFETY LIMITS.<br>",
     "WARNING: GPU TEMPERATURE CRITICAL. THERMAL SHUTDOWN INITIATED.<br>",
     "<br>",
-    "TEMPERATURE WARNING: SYSTEM IS OVERHEATING.<br>",
-    "ALERT: CPU TEMPERATURE EXCEEDS 90°C.<br>",
-    "THERMAL FAILURE DETECTED. SHUTTING DOWN NOW.<br>",
-    "WARNING: TEMPERATURE CRITICAL. SYSTEM SHUTDOWN IN PROGRESS.<br>",
-    "ERROR: COOLING SYSTEM MALFUNCTION. TEMPERATURE RISING.<br>",
-    "<br>",
-    "ALERT: SYSTEM OVERHEATED. IMMINENT DAMAGE DETECTED.<br>",
-    "ERROR: SYSTEM COOLING INSUFFICIENT. HEAT DAMAGE POSSIBLE.<br>",
-    "WARNING: SYSTEM COMPONENTS OVERHEATING. FILES MAY BE LOST.<br>",
-    "ATTEMPTING TO LOWER TEMPERATURE... FAILED.<br>",
-    "CRITICAL ALERT: HARDWARE WILL OVERHEAT IF TEMPERATURE CONTINUES TO RISE.<br>",
-    "<br>",
-    "TEMPERATURE WARNING: SHUTTING DOWN SYSTEM TO PREVENT DAMAGE.<br>",
-    "CPU OVERHEAT: SYSTEM AUTOMATICALLY SHUTTING DOWN.<br>",
-    "TEMPERATURE ABOVE SAFE LEVEL. SYSTEM WILL CRASH.<br>",
-    "WARNING: SYSTEM IS TOO HOT TO CONTINUE.<br>",
-    "ERROR: OVERHEAT DETECTED. SYSTEM FAILURE IMMINENT.<br>",
 
     );
 
@@ -125,7 +82,7 @@ function loginTNT() {
         var currentChar = currentArray[iIndex].charAt(iTextPos);
         destination.innerHTML = sContents + currentArray[iIndex].substring(0, iTextPos) + "_";
 
-        // Play sound when typing is happening
+        // Play morssound when typing is happening
         if (
             typingActive &&
             currentChar !== " " &&
@@ -208,10 +165,10 @@ function typeSnotText() {
     iIndex++;
 
     if (iIndex < currentArray.length) {
-        setTimeout(typeSnotText, 300);
+        setTimeout(typeSnotText, 100);
     } else {
         // All lines have been displayed, now play ending sounds
-        setTimeout(endingSound, 500); 
+        setTimeout(endingSound, 200); 
     }
 }
 

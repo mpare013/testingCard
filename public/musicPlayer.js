@@ -1,3 +1,11 @@
+function openMusicPlayer() {
+    const pepsi = document.getElementById("window6");
+    pepsi.style.display = "none";
+    
+    const musicPlayer = document.getElementById("window12");
+    musicPlayer.style.display= "block";
+    bringWindowToFront(musicPlayer);
+}
 document.addEventListener("DOMContentLoaded", function() {
     const songs = [
         'audio/K.mp3', 
@@ -26,6 +34,7 @@ document.addEventListener("DOMContentLoaded", function() {
             console.error("Error playing the song:", error);
         });
     }
+
 
     function stopSong() {
         musicPlayerSong.pause();
@@ -66,10 +75,10 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 
     musicPlayerSong.addEventListener("ended", () => {
-        playSong();  // Restart the same song when it ends
+        playSong();  // restarted the same song when it ends
     });
 
-    // Event listeners for buttons
+    // maybe add rewind, event listeners for buttons 
     document.getElementById("play").addEventListener("click", playSong);
     document.getElementById("stop").addEventListener("click", stopSong);
     document.querySelector(".previous").addEventListener("click", previousSong);
