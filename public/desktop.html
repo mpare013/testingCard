@@ -5,7 +5,7 @@
     <meta name="keywords" content= "HTML, CSS, JavaScript">
     <meta lang="en">
     <meta charset="UTF-8">
-    <meta name="viewport" content= "width=device-width, initial-scale=1.0">
+    <meta name="viewport" content= "width=device-width, initial-scale=1.2">
     <meta name="author" content= "Melissa Paredes">
     <script src="brickbreaker.js"></script>
     <script src="musicPlayer.js"></script>
@@ -691,7 +691,7 @@
                     </div>
                 </div>
                 <div class="confirmation">
-                    <button id="OK" onclick="goTNT()"> OK </button>
+                    <button id="OK" onclick="loginTNT()"> OK </button>
                     <button id="Cancel" onclick="closeTNT()"> Cancel </button>
                 </div>
         </div>
@@ -788,7 +788,7 @@
                 </button>
                 <button class="item" onclick="openRandomNote()">
                     <img src="https://images2.imgbox.com/fe/ac/Xl5BeJSo_o.png" width="80px" height="80px">
-                    <div class="textBlack">Draft.txt</div>
+                    <div class="textBlack">Note.txt</div>
                 </button>
             </div>
         </div>
@@ -903,7 +903,7 @@ but flowers have a way of saying things i can’t quite put into words.<br>
     <div id="window24" class="window" style="display:none;">
         <div class="window-top">
             <div class="title">
-                Draft
+                Note
             </div>
             <div class="window-buttons">
                 <button class="btn" onclick="closeRandomNote()">X</button>
@@ -919,7 +919,9 @@ but flowers have a way of saying things i can’t quite put into words.<br>
             ugh... i wish i could just zap my feelings into words. <br>
             <br> i want to write a heartfelt letter but i just don't know how to say how I feel with words.
             <br> i should've paid more attention in english... maybe this would've been easier...
-            <br> 
+            <br>
+            <br>
+            <i>Ctrl + A </i>can be really useful sometimes<br>
             <br>
             Doctor's appointment May 18 @ 9:00 AM<br>
             <br>
@@ -1289,6 +1291,7 @@ End memo.
             <span><u>H</u>elp</span>
     </div>
     <div class="notepad-bin-body">
+        
         So… it’s our anniversary. We've been together for so long but I still get so excited to celebrate with you.<br><br>
 
         I hope our anniversary feels like 
@@ -1375,7 +1378,7 @@ Happy anniversary, and here's to many more! <br>
 </div>
 </div>
 <!-- tnt clue -->
-<div id="window34" class="window" style="display:none;">
+<div id="window34" class="window" style="display:block;">
     <div class="window-top">
         <div class="title">
             Manuscript Draft
@@ -1391,29 +1394,13 @@ Happy anniversary, and here's to many more! <br>
             <span><u>H</u>elp</span>
     </div>
     <div class="notepad-bin-body-puzzle">
-<br>
-Aol Wyvwoljf vm aol Xbpla Whao<br>
-Av aol vul dov dhsrz dpao wbywvzl, fla zllrz uv mhtl—<br>
-<br>
-Fvb dpss ruvd aol yvhk if paz xbpla zalhkpulzz, uva if aol uvpzl vm aol dvysk hyvbuk fvb.<br>
-Fvby zaylunao dpss uva il zllu pu nyhuk nlzabylz, iba pu aol jhstulzz dpao dopjo fvb mhjl aol jvtpun khfz.<br>
-<br>
-Aoyll aopunz dpss nbpkl fvb:<br>
-- H jovpjl dolu vaolyz dvbsk olzpahal.<br>
-- H tvtlua vm zapssulzz dolu hss vaolyz ybzo.<br>
-- H xbpla ohuk vmmlylk dolu pa’z slhza lewljalk.<br>
-<i>aua svnpu jylkluaphsz</i><br>
-<br>
-<i>bzly uhtl: kplawlwzp</i><br>
-<br>
-<i>whzzdvyk: sbujoive</i><br>
-<br>
-Aol whao dpss uva hsdhfz il jslhy, iba fvb dpss mpuk pa if aybzapun aol nyvbuk ilulhao fvby mlla.<br>
-Aolyl dpss il uv nyhuk abyupun wvpua, uv zbkklu iypssphujl—vusf aol zalhkf hjjbtbshapvu vm zthss hjapvuz aoha dpss zohwl fvby dhf.<br>
-<br>
-Pu aptl, fvb dpss ylhspgl aoha fvb ohcl ibpsa zvtlaopun shzapun, aovbno fvb ulcly zvbnoa av kv zv.<br>
-<br>
-Huk dolu vaolyz svvr ihjr, aolf dpss zll aoha pa dhz fvby jhst wlyzpzalujl aoha thkl aol kpmmlylujl.<br>
+        <p class="whiteText">TNT Login Credentials</p>
+        <p class="whiteText">-SHIFT -SHIFT -SHIFT -SHIFT -SHIFT -SHIFT -SHIFT</p>
+    <div class="puzzlePassText">
+        <i><b>bzlyuhtl: kplawlwzp</b></i><br>
+        <br>
+        <i><b>whzzdvyk: sbujoive</b></i><br>
+    </div>
 
     </div>
 <div class="status-bar">
@@ -1541,7 +1528,7 @@ Huk dolu vaolyz svvr ihjr, aolf dpss zll aoha pa dhz fvby jhst wlyzpzalujl aoha 
     </div>
 
     <!-- Status Bar -->
-    <div class="status-bar" style="background: #c0c0c0; padding: 4px 5px; display: flex; justify-content: space-between; font-size: 18px;">
+    <div class="status-bar" style="background: #c0c0c0;  justify-content: space-between; font-size: 18px;">
         <span>Connecting to site: 75.2.104.223</span>
         <span><img src="https://images2.imgbox.com/7c/5e/GC399yaq_o.png" width="24px" height="24px" style="vertical-align: middle;"> Internet</span>
     </div>

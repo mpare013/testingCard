@@ -1,5 +1,5 @@
 {
-  "name": "testingCard",
+  "name": "interactive-greeting-card",
   "version": "1.0.0",
   "description": "interactive greeting card for loved ones",
   "main": "index.js",

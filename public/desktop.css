@@ -82,9 +82,9 @@ html, body{
 .iconsContainer{
     display: grid;
     grid-template-columns: repeat(auto-fill, 100px); /* or a fixed number like 3 */
-    grid-auto-rows: 110px;
+    grid-auto-rows: 100px;
     gap: 20px;
-    padding: 10px;
+    padding: 7px;
     margin: auto;
 }
 
@@ -295,7 +295,7 @@ input {border:0; outline:none; }
 
 #window6{
     position: absolute;
-    top: 40%;
+    top: 42%;
     left: 50%;
     transform: translate(-50%, -50%);
     width: 570px;
@@ -1806,6 +1806,19 @@ button:focus {
     overflow-y: auto;
     outline: none;
     font-size: 18px;
+    text-align: center;
+    vertical-align: middle;
+}
+.puzzlePassText{
+  align-items: center;      
+  justify-content: center;
+  margin-top: 70px;
+  letter-spacing: 1.2px;
+  font-size:22px;
+}
+.whiteText{
+    color: white;
+    font-size: 20px;
 }
 #user-detected-window{
     border: 2px solid black;

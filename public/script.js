@@ -104,7 +104,10 @@ function error() {
         bringWindowToFront("window27");
     }
 }
-
+function closeError(){
+    const errorWindow = document.getElementById("window27");
+    errorWindow.style.display = 'none';
+}
 function closeWelcomeMessage(){
     const welcomeMessage = document.getElementById('welcome-message');
     welcomeMessage.style.display = "none";
@@ -337,6 +340,11 @@ function openSettings(){
 function openTNT(){
     document.getElementById("window18").style.display="block";
         bringWindowToFront(window18);
+}
+function closeTNT(){
+    const tntLogin = document.getElementById("window18");
+    tntLogin.style.display="none";
+
 }
 
 
