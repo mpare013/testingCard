@@ -95,7 +95,7 @@ function openWelcomeMessage(){
         bringWindowToFront(welcomeWindow);
 }
 function error() {
-    if (username !== correctUsername || password !== correctPassword) {
+    if (uname !== correctUsername || pword !== correctPassword) {
         const errorSound = new Audio('audio/errorSound.mp3');
         errorSound.play();
 
