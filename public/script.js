@@ -146,7 +146,7 @@ function closeMusicPlayer(){
 }
 
 function closePepsiJoke() {
-    document.getElementById("pepsiInformation").style.display = "none";
+    document.getElementById("window6").style.display = "none";
 }
 
 function openHint(){
