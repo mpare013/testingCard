@@ -12,6 +12,7 @@
 <body>
 
     <audio id="clickSound" src="audio/click.mp3"></audio>
+    <audio id="typingSound" src="audio/typing.mp3" preload="auto"></audio>
 <div id="backgroundColor">
     <div class="loginInformation">
         <div class="window-top"><img src="https://images2.imgbox.com/a3/c4/Si7j6VmP_o.png" width ="24px" height="24px"><div style="position: absolute; left: 40px; font-size: 20px;">Enter Valid Credentials</div>
@@ -32,7 +33,7 @@
                             </div>
                             <div class="userInformationInput">
                                 <input type="text" id="uname" class="usernameInputBox" autocomplete="off" onkeydown="handleKeyPress(event)">
-                                <input type="text" id="pword" class="passwordInputBox" autocomplete="off" onkeydown="handleKeyPress(event)">
+                                <input type="password" id="pword" class="passwordInputBox" autocomplete="off" onkeydown="handleKeyPress(event)">
                             </div>
                         </div>
                     </div>
@@ -94,6 +95,22 @@
             clickSound.play();
         });
     });
+</script>
+<script>
+  const keyboardSound = document.getElementById("typingSound");
+
+  // typing sound for all inputs, -- edit this to one tone
+  document.querySelectorAll('input').forEach(input => {
+    input.addEventListener('keydown', () => {
+      keyboardSound.currentTime = 0;
+      keyboardSound.play();
+    });
+
+    input.addEventListener('keyup', () => {
+      keyboardSound.pause();
+      keyboardSound.currentTime = 0;
+    });
+  });
 </script>
 <script>
     function makeDraggable(windowEl) {

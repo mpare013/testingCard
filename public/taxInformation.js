@@ -6,7 +6,10 @@ function goTax() {
     const pTaxUser = document.getElementById('pTax').value.trim();
 
     if (uTaxUser === correctUTax && pTaxUser === correctPTax) {
-        document.getElementById('window13').style.display = "block";
+
+        const taxDocuments= document.getElementById('window13');
+        taxDocuments.style.display = "block";
+        bringWindowToFront(taxDocuments);
         document.getElementById('window11').style.display= "none";
 
     } else {

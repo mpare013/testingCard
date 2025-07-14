@@ -14,7 +14,7 @@
     <link rel="icon" type="image/png" href="icons/documents.png">
 </head>
 <body>
-
+<audio id="typingSound" src="audio/typing.mp3" preload="auto"></audio>
 <audio id="typeSound" src="audio/morse-code-131798.mp3" preload="auto"></audio>
     <!-- Taskbar -->
     <div class="taskbar">
@@ -1614,10 +1614,10 @@ But if the past has taught us anything, it’s that no code is unbreakable—esp
             <span><u>V</u>iew</span>
             <span><u>H</u>elp</span>
         </div>
-        <textarea id="notepad" placeholder="Click Enter to Save..." onkeydown="handleKeyPress(event)"></textarea>
+        <textarea type="input" id="notepad" placeholder="Click Enter to Save..." onkeydown="handleKeyPress(event)"></textarea>
         <div class="status-bar">
-          <span>Ln 1, Col 1</span>
-          <span>Windows95</span>
+            <span>3 item(s)</span>
+            <span>Windows95</span>
         </div>
     </div>
 
@@ -1874,7 +1874,22 @@ But if the past has taught us anything, it’s that no code is unbreakable—esp
         <button id="OK" onclick="closeHowtoplay()">OK</button>
     </div>
 </div>
+<script>
+  const keyboardSound = document.getElementById("typingSound");
 
+  // typing sound for all inputs, -- edit this to one tone
+  document.querySelectorAll('input').forEach(input => {
+    input.addEventListener('keydown', () => {
+      keyboardSound.currentTime = 0;
+      keyboardSound.play();
+    });
+
+    input.addEventListener('keyup', () => {
+      keyboardSound.pause();
+      keyboardSound.currentTime = 0;
+    });
+  });
+</script>
 <!-- doge window -->
 <div id="window40" class="window" style="display:none; z-index: 100000;">
     <div class="window-top">
